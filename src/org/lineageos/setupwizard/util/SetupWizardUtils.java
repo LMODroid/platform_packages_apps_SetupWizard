@@ -59,10 +59,13 @@ import org.lineageos.setupwizard.NetworkSetupActivity;
 import org.lineageos.setupwizard.SetupWizardApp;
 import org.lineageos.setupwizard.SimMissingActivity;
 import org.lineageos.setupwizard.wizardmanager.WizardManager;
+import org.lineageos.setupwizard.LineageSettingsActivity;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import lineageos.hardware.LineageHardwareManager;
 
 public class SetupWizardUtils {
 
@@ -278,6 +281,11 @@ public class SetupWizardUtils {
         return PhoneMonitor.getInstance().singleSimInserted();
     }
 
+    public static boolean isKeyDisablerSupported(Context context) {
+        final LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+        return hardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE);
+    }
+
     public static boolean isMultiSimDevice() {
         return PhoneMonitor.getInstance().isMultiSimDevice();
     }
@@ -294,6 +302,9 @@ public class SetupWizardUtils {
         }
         if ((!hasWifi(context) && !hasTelephony(context)) || isEthernetConnected(context)) {
             disableComponent(context, NetworkSetupActivity.class);
+        }
+        if (!isKeyDisablerSupported(context)) {
+            disableComponent(context, LineageSettingsActivity.class);
         }
     }
 
