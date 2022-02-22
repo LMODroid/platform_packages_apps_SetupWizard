@@ -227,7 +227,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LineageSettingsActivity"
+        <activity android:name=".RomSettingsActivity"
                   android:label="@string/activity_label_empty"
                   android:excludeFromRecents="true"
                   android:configChanges="mcc|mnc"
@@ -235,7 +235,7 @@
                   android:exported="true"
                   android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
-                <action android:name="org.lineageos.setupwizard.LINEAGE_SETTINGS" />
+                <action android:name="org.lineageos.setupwizard.ROM_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

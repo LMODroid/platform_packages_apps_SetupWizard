@@ -59,7 +59,7 @@ import org.lineageos.setupwizard.NetworkSetupActivity;
 import org.lineageos.setupwizard.SetupWizardApp;
 import org.lineageos.setupwizard.SimMissingActivity;
 import org.lineageos.setupwizard.wizardmanager.WizardManager;
-import org.lineageos.setupwizard.LineageSettingsActivity;
+import org.lineageos.setupwizard.RomSettingsActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -304,7 +304,7 @@ public class SetupWizardUtils {
             disableComponent(context, NetworkSetupActivity.class);
         }
         if (!isKeyDisablerSupported(context)) {
-            disableComponent(context, LineageSettingsActivity.class);
+            disableComponent(context, RomSettingsActivity.class);
         }
     }
 

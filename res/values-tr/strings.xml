@@ -51,7 +51,7 @@
     <string name="emergency_call">Acil durum araması</string>
     <string name="accessibility_settings">Erişilebilirlik ayarları</string>
     <string name="setup_services">LineageOS özellikleri</string>
-    <string name="services_pp_explanation">Bu hizmetler, cihazınızın özelliklerini genişletmeniz için çalışır. Veri <xliff:g id="name" example="LineageOS">%1$s</xliff:g>\'un gizlilik politikası ile kullanılacaktır.</string>
+    <string name="services_pp_explanation">Bu hizmetler, cihazınızın özelliklerini genişletmeniz için çalışır.</string>
     <string name="services_find_privacy_policy">Gizlilik politikasını farklı cihazla <xliff:g id="uri" example="https://lineageos.org/legal">%1$s</xliff:g> adresini ziyaret ederek okuyabilirsiniz</string>
     <string name="services_help_improve_cm"><xliff:g id="name" example="LineageOS">%s</xliff:g> geliştirmeye yardımcı olun</string>
     <string name="services_metrics_label"><xliff:g id="name" example="Help improve LineageOS">%1$s</xliff:g> teşhis ve kullanım verilerini otomatik olarak <xliff:g id="name" example="LineageOS">%2$s</xliff:g>\'a gönderir. Bu bilgiler kimliğinizi belirlemek için kullanılamaz ve pil ömrü, uygulama performansı ve yeni <xliff:g id="name" example="LineageOS">%3$s</xliff:g> özellikler gibi konularda çalışan ekiplere yardımcı olur.</string>

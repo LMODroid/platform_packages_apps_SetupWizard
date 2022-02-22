@@ -51,7 +51,7 @@
     <string name="emergency_call">Thirrje emergjente</string>
     <string name="accessibility_settings">Cilësimet e aksesueshmërisë</string>
     <string name="setup_services">Funksionet e LineageOS</string>
-    <string name="services_pp_explanation">Këto shërbime punojnë për ju për të zgjeruar aftësitë e pajisjes tuaj. Të dhënat do të përdoren në përputhje me <xliff:g id="name" example="LineageOS">%1$s</xliff:g> politikës së privatësisë</string>
+    <string name="services_pp_explanation">Këto shërbime punojnë për ju për të zgjeruar aftësitë e pajisjes tuaj.</string>
     <string name="services_find_privacy_policy">Ju mund të lexoni politikën e privatësisë në një pajisje tjetër duke vizituar  <xliff:g id="uri" example="https://lineageos.org/legal">%1$s</xliff:g></string>
     <string name="services_help_improve_cm">Ndihmo në përmirësimin e <xliff:g id="name" example="LineageOS">%s</xliff:g></string>
     <string name="services_metrics_label">&lt;xliff:g id="name" example="Ndihmoni në përmirësimin e LineageOS"&gt;%1$s&lt;/xliff:g&gt; duke dërguar automatikisht të dhëna diagnostikuese dhe të përdorimit te &lt;xliff:g id="name" example="LineageOS"&gt; %2$s&lt;/xliff:g&gt;. Ky informacion nuk mund të përdoret për të të identifikuar ty dhe u jep ndihmë ekipeve që punojnë në gjëra të tilla si jetëgjatësia e baterisë, performanca e aplikacionit dhe &lt;xliff:g id="name" example="LineageOS"&gt;%3$s&lt;/xliff :g&gt; veçoritë.</string>
