@@ -52,7 +52,6 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import org.lineageos.internal.util.PackageManagerUtils;
 import org.lineageos.setupwizard.BiometricActivity;
 import org.lineageos.setupwizard.BluetoothSetupActivity;
 import org.lineageos.setupwizard.NetworkSetupActivity;
@@ -65,7 +64,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import lineageos.hardware.LineageHardwareManager;
+import com.android.internal.libremobileos.hardware.LineageHardwareManager;
+import com.android.internal.util.libremobileos.PackageManagerUtils;
 
 public class SetupWizardUtils {
 

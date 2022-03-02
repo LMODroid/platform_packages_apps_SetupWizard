@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -37,8 +38,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
-
-import lineageos.providers.LineageSettings;
 
 public class RomSettingsActivity extends BaseSetupWizardActivity {
 
@@ -66,8 +65,8 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
         View navKeysRow = findViewById(R.id.nav_keys);
         navKeysRow.setOnClickListener(mNavKeysClickListener);
         mNavKeys = (CheckBox) findViewById(R.id.nav_keys_checkbox);
-        mNavKeys.setChecked(LineageSettings.System.getIntForUser(getContentResolver(),
-                LineageSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
+        mNavKeys.setChecked(Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
     }
 
     @Override
@@ -99,8 +98,8 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
 
     private void updateDisableNavkeysOption() {
         final Bundle myPageBundle = mSetupWizardApp.getSettingsBundle();
-        boolean enabled = LineageSettings.System.getIntForUser(getContentResolver(),
-                LineageSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0;
+        boolean enabled = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0;
         boolean checked = myPageBundle.containsKey(DISABLE_NAV_KEYS) ?
                 myPageBundle.getBoolean(DISABLE_NAV_KEYS) :
                 enabled;
