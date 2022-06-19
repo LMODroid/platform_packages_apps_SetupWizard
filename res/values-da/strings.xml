@@ -48,9 +48,9 @@
     <string name="yes">Ja</string>
     <string name="emergency_call">Nødopkald</string>
     <string name="accessibility_settings">Hjælpefunktioner</string>
-    <string name="setup_services">LineageOS-funktioner</string>
-    <string name="services_find_privacy_policy">Du kan læse privatlivspolitikken på en anden enhed ved at besøge <xliff:g id="uri" example="https://lineageos.org/legal">%1$s</xliff:g></string>
-    <string name="services_help_improve_cm">Hjælp med at forbedre <xliff:g id="name" example="LineageOS">%s</xliff:g></string>
+    <string name="setup_services">LMODroid-funktioner</string>
+    <string name="services_find_privacy_policy">Du kan læse privatlivspolitikken på en anden enhed ved at besøge <xliff:g id="uri" example="https://libremobileos.com/legal">%1$s</xliff:g></string>
+    <string name="services_help_improve_cm">Hjælp med at forbedre <xliff:g id="name" example="LMODroid">%s</xliff:g></string>
     <string name="services_os_nav_keys_label"><b>Brug navigationstaster på skærm</b> i stedet for fysiske-taster.</string>
     <string name="settings_biometric_setup_title">Vælg sikkerheds-låseskærmtype</string>
     <string name="settings_biometric_setup_details">Hvordan vil du låse din skærm?</string>
@@ -65,8 +65,8 @@
     <string name="lockscreen_setup_title" product="default">Beskyt din telefon</string>
     <string name="lockscreen_setup_summary"><b>Beskyt denne enhed</b>, og kræv en PIN, et mønster, eller en adgangskode, for at låse skærmen op</string>
     <string name="lockscreen_setup_screen_lock_setup">Opsætning</string>
-    <string name="intro_restore_subtitle" product="tablet">Hvis du har en sikkerhedskopi fra din sidste <xliff:g id="name" example="LineageOS">%s</xliff:g> tablet, kan du gendanne den her.</string>
-    <string name="intro_restore_subtitle" product="default">Hvis du har en sikkerhedskopi fra din sidste <xliff:g id="name" example="LineageOS">%s</xliff:g> telefon, kan du gendanne den her.</string>
+    <string name="intro_restore_subtitle" product="tablet">Hvis du har en sikkerhedskopi fra din sidste <xliff:g id="name" example="LMODroid">%s</xliff:g> tablet, kan du gendanne den her.</string>
+    <string name="intro_restore_subtitle" product="default">Hvis du har en sikkerhedskopi fra din sidste <xliff:g id="name" example="LMODroid">%s</xliff:g> telefon, kan du gendanne den her.</string>
     <string name="update_recovery_title">Opdater Lineage Genddanelse</string>
     <string name="update_recovery_description">Opdateringer Lineage Recovery ved første opstart efter hver opdatering.</string>
     <string name="update_recovery_warning">Gendannelse vil blive opdateret, så snart du er færdig med opsætningen. Hvis du ønsker at holde det intakt, skal du deaktivere denne funktion.</string>
