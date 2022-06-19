@@ -20,36 +20,36 @@
 <WizardScript xmlns:wizard="http://schemas.android.com/apk/res/com.google.android.setupwizard"
     wizard:firstAction="bluetooth_setup">
 
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_BLUETOOTH_SETUP;end" id="bluetooth_setup">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_BLUETOOTH_SETUP;end" id="bluetooth_setup">
         <result wizard:action="welcome" />
     </WizardAction>
 
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_WELCOME;end" id="welcome">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_WELCOME;end" id="welcome">
         <result wizard:action="locale" />
     </WizardAction>
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_LOCALE;end" id="locale">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_LOCALE;end" id="locale">
         <result wizard:action="wifi_setup" />
     </WizardAction>
 
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_WIFI_SETUP;end" id="wifi_setup">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_WIFI_SETUP;end" id="wifi_setup">
         <result wizard:action="device_specific" />
     </WizardAction>
 
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.DEVICE_SPECIFIC;end" id="device_specific">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.DEVICE_SPECIFIC;end" id="device_specific">
         <result wizard:action="recovery_update" />
     </WizardAction>
 
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_RECOVERY_UPDATE;end" id="recovery_update">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_RECOVERY_UPDATE;end" id="recovery_update">
         <result wizard:action="rom_settings" />
     </WizardAction>
 
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.ROM_SETTINGS;end" id="rom_settings">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.ROM_SETTINGS;end" id="rom_settings">
         <result wizard:action="finish" />
     </WizardAction>
 
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_SETUP_COMPLETE;end" id="finish">
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_SETUP_COMPLETE;end" id="finish">
         <result wizard:action="exit" />
     </WizardAction>
-    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.EXIT;end" id="exit" />
+    <WizardAction wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.EXIT;end" id="exit" />
 
 </WizardScript>
