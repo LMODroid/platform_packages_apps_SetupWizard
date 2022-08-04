@@ -71,8 +71,8 @@
     <string name="lockscreen_setup_screen_lock_setup">Configurer</string>
     <string name="intro_restore_title">Restaurer les applications et les données</string>
     <string name="intro_restore_button">Restaurer depuis une sauvegarde</string>
-    <string name="update_recovery_title">Mettre à jour la récupération de Lineage</string>
-    <string name="update_recovery_description">Met à jour Lineage Recovery au premier démarrage après chaque mise à jour.</string>
+    <string name="update_recovery_title">Mettre à jour la récupération de LMODroid</string>
+    <string name="update_recovery_description">Met à jour LMODroid Recovery au premier démarrage après chaque mise à jour.</string>
     <string name="update_recovery_warning">La récupération sera mise à jour dès que vous aurez terminé la configuration. Si vous souhaitez la garder intacte, veuillez désactiver cette fonctionnalité.</string>
-    <string name="update_recovery_setting">Mettre à jour Lineage Recovery en même temps que le système d\'exploitation</string>
+    <string name="update_recovery_setting">Mettre à jour LMODroid Recovery en même temps que le système d\'exploitation</string>
 </resources>

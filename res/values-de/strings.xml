@@ -78,10 +78,10 @@
     <string name="intro_restore_subtitle" product="tablet">Wenn du ein Backup von deinem letzten <xliff:g id="name" example="LMODroid">%s</xliff:g>-Tablet hast, kannst du es hier wiederherstellen.</string>
     <string name="intro_restore_subtitle" product="default">Wenn du ein Backup von deinem letzten <xliff:g id="name" example="LMODroid">%s</xliff:g>-Smartphone hast, kannst du es hier wiederherstellen.</string>
     <string name="intro_restore_button">Aus Backup wiederherstellen</string>
-    <string name="update_recovery_title">Lineage-Recovery aktualisieren</string>
-    <string name="update_recovery_description">Aktualisiert das Lineage-Recovery-Image beim ersten Start nach jedem Update.</string>
+    <string name="update_recovery_title">LMODroid-Recovery aktualisieren</string>
+    <string name="update_recovery_description">Aktualisiert das LMODroid-Recovery-Image beim ersten Start nach jedem Update.</string>
     <string name="update_recovery_warning">Das Recovery-Image wird aktualisiert, sobald du die Einrichtung abgeschlossen hast. Wenn es unverändert bleiben soll, deaktiviere diese Funktion.</string>
-    <string name="update_recovery_setting">Lineage-Recovery zusammen mit dem Betriebssystem aktualisieren</string>
+    <string name="update_recovery_setting">LMODroid-Recovery zusammen mit dem Betriebssystem aktualisieren</string>
     <string name="update_recovery_full_description"><xliff:g id="recovery_update_description">%1$s</xliff:g>\n<xliff:g id="recovery_update_warning">%2$s</xliff:g></string>
     <string name="setup_navigation">Navigation</string>
     <string name="navigation_summary">Bevorzugte Steuerungsmethode auswählen</string>

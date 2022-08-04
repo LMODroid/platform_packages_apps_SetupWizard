@@ -78,10 +78,10 @@
     <string name="intro_restore_subtitle" product="tablet">Son <xliff:g id="name" example="LMODroid">%s</xliff:g> planşetinizdə bir nüsxəniz varsa, burada geri yükləyə bilərsiniz.</string>
     <string name="intro_restore_subtitle" product="default">Son <xliff:g id="name" example="LMODroid">%s</xliff:g> telefonunuzda bir nüsxəniz varsa, burada geri yükləyə bilərsiniz.</string>
     <string name="intro_restore_button">Nüsxədən bərpa et</string>
-    <string name="update_recovery_title">Lineage Bərpa Rejimini Yenilə</string>
-    <string name="update_recovery_description">Hər yeniləmədən sonrakı ilk açılışda Lineage Bərpa rejimini yeniləyər.</string>
+    <string name="update_recovery_title">LMODroid Bərpa Rejimini Yenilə</string>
+    <string name="update_recovery_description">Hər yeniləmədən sonrakı ilk açılışda LMODroid Bərpa rejimini yeniləyər.</string>
     <string name="update_recovery_warning">Quraşdırma bitən kimi Bərpa rejimi yeniləcək. Sağlam qalmasını istəyirsinizsə, bu özəlliyi sıradan çıxardın.</string>
-    <string name="update_recovery_setting">ƏS ilə birgə Lineage Bərpa rejimini də yeniləyin</string>
+    <string name="update_recovery_setting">ƏS ilə birgə LMODroid Bərpa rejimini də yeniləyin</string>
     <string name="update_recovery_full_description"><xliff:g id="recovery_update_description">%1$s</xliff:g>\n<xliff:g id="recovery_update_warning">%2$s</xliff:g></string>
     <string name="setup_navigation">Hərəkət</string>
     <string name="navigation_summary">Tərcih edilən naviqasiya metodunu seçin</string>

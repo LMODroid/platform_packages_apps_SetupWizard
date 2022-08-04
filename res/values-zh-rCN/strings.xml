@@ -78,10 +78,10 @@
     <string name="intro_restore_subtitle" product="tablet">如果你从你最后的 <xliff:g id="name" example="LMODroid">%s</xliff:g> 平板电脑备份，你可以在这里还原它。</string>
     <string name="intro_restore_subtitle" product="default">如果你从你最后的 <xliff:g id="name" example="LMODroid">%s</xliff:g> 手机备份，你可以在这里还原它。</string>
     <string name="intro_restore_button">从备份中还原</string>
-    <string name="update_recovery_title">更新 Lineage 恢复</string>
-    <string name="update_recovery_description">每次更新后在第一次启动时更新 Lineage 恢复。</string>
+    <string name="update_recovery_title">更新 LMODroid 恢复</string>
+    <string name="update_recovery_description">每次更新后在第一次启动时更新 LMODroid 恢复。</string>
     <string name="update_recovery_warning">恢复程序将在您完成设置后立即更新。如果您想保持完整，请禁用此功能。</string>
-    <string name="update_recovery_setting">与操作系统一起更新 Lineage 恢复</string>
+    <string name="update_recovery_setting">与操作系统一起更新 LMODroid 恢复</string>
     <string name="update_recovery_full_description"><xliff:g id="recovery_update_description">%1$s</xliff:g>\n<xliff:g id="recovery_update_warning">%2$s</xliff:g></string>
     <string name="setup_navigation">导航栏</string>
     <string name="navigation_summary">选择导航栏方式</string>

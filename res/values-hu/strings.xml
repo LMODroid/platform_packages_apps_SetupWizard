@@ -75,8 +75,8 @@
     <string name="intro_restore_subtitle" product="tablet">Amennyiben van régebbi <xliff:g id="name" example="LMODroid">%s</xliff:g>-mentése, itt állithatja helyre a tabletjét.</string>
     <string name="intro_restore_subtitle" product="default">Amennyiben van régebbi <xliff:g id="name" example="LMODroid">%s</xliff:g>-mentése, itt állithatja helyre a telefonját.</string>
     <string name="intro_restore_button">Visszaállítás biztonsági mentésből</string>
-    <string name="update_recovery_title">A Lineage Recovery frissítése</string>
-    <string name="update_recovery_description">Frissíti a Lineage Recovery-t minden frissítés utáni első indításkor.</string>
+    <string name="update_recovery_title">A LMODroid Recovery frissítése</string>
+    <string name="update_recovery_description">Frissíti a LMODroid Recovery-t minden frissítés utáni első indításkor.</string>
     <string name="update_recovery_warning">A Recovery frissítésre kerül, amint befejeződött a telepítést. Ha érintetlenül akarja hagyni, tiltsa le ezt a funkciót.</string>
-    <string name="update_recovery_setting">A Lineage Recovery frissítése az operációs rendszer mellett</string>
+    <string name="update_recovery_setting">A LMODroid Recovery frissítése az operációs rendszer mellett</string>
 </resources>

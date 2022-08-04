@@ -76,8 +76,8 @@
     <string name="intro_restore_subtitle" product="tablet">Nếu bạn có bản sao lưu từ máy tính bảng <xliff:g id="name" example="LMODroid">%s</xliff:g> gần đây nhất, bạn có thể khôi phục nó tại đây.</string>
     <string name="intro_restore_subtitle" product="default">Nếu bạn có bản sao lưu từ điện thoại <xliff:g id="name" example="LMODroid">%s</xliff:g> gần đây nhất của mình, bạn có thể khôi phục nó tại đây.</string>
     <string name="intro_restore_button">Khôi phục từ bản sao lưu</string>
-    <string name="update_recovery_title">Cập nhật Lineage Recovery</string>
-    <string name="update_recovery_description">Cập nhật Lineage Recovery khi bật máy lần đầu sau mỗi bản cập nhật.</string>
+    <string name="update_recovery_title">Cập nhật LMODroid Recovery</string>
+    <string name="update_recovery_description">Cập nhật LMODroid Recovery khi bật máy lần đầu sau mỗi bản cập nhật.</string>
     <string name="update_recovery_warning">Recovery sẽ được cập nhật sau khi bạn hoàn thành cài đặt. Nếu bạn muốn giữ nguyên, hãy tắt tính năng này.</string>
-    <string name="update_recovery_setting">Cập nhật Lineage Recovery song song với hệ điều hành</string>
+    <string name="update_recovery_setting">Cập nhật LMODroid Recovery song song với hệ điều hành</string>
 </resources>

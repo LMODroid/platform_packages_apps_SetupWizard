@@ -70,8 +70,8 @@
     <string name="lockscreen_setup_screen_lock_setup">Asetusten määritys</string>
     <string name="intro_restore_title">Palauta sovellukset ja tiedot</string>
     <string name="intro_restore_button">Palauta varmuuskopiosta</string>
-    <string name="update_recovery_title">Päivitä Lineage Recovery</string>
-    <string name="update_recovery_description">Päivittää Lineage Recoveryn jokaisen päivityksen jälkeen ensimmäisellä käynnistyskerralla</string>
+    <string name="update_recovery_title">Päivitä LMODroid Recovery</string>
+    <string name="update_recovery_description">Päivittää LMODroid Recoveryn jokaisen päivityksen jälkeen ensimmäisellä käynnistyskerralla</string>
     <string name="update_recovery_warning">Recovery pävitetään kun asennus on valmis. Jos haluat säilyttää sen ennallaan, poista tämä ominaisuus käytöstä.</string>
-    <string name="update_recovery_setting">Päivitä Lineage Recovery käyttöjärjestelmän rinnalla</string>
+    <string name="update_recovery_setting">Päivitä LMODroid Recovery käyttöjärjestelmän rinnalla</string>
 </resources>

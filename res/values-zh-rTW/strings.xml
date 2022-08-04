@@ -71,8 +71,8 @@
     <string name="lockscreen_setup_screen_lock_setup">設定</string>
     <string name="intro_restore_title">恢復應用程式和資料</string>
     <string name="intro_restore_button">從備份還原</string>
-    <string name="update_recovery_title">更新 Lineage Recovery</string>
-    <string name="update_recovery_description">每次更新後，在第一次啟動時更新 Lineage Recovery。</string>
+    <string name="update_recovery_title">更新 LMODroid Recovery</string>
+    <string name="update_recovery_description">每次更新後，在第一次啟動時更新 LMODroid Recovery。</string>
     <string name="update_recovery_warning">一旦安裝完成，Recovery 就會更新。如果您希望保持原樣，請停用此功能。</string>
-    <string name="update_recovery_setting">與系統一起更新 Lineage Recovery</string>
+    <string name="update_recovery_setting">與系統一起更新 LMODroid Recovery</string>
 </resources>

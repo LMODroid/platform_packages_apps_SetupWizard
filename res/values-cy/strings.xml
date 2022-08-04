@@ -76,8 +76,8 @@
     <string name="intro_restore_subtitle" product="tablet">Os oes gennyt gopi wrth gefn o dy lechen <xliff:g id="name" example="LMODroid">%s</xliff:g> diwethaf, gellir ei adfer fan hyn.</string>
     <string name="intro_restore_subtitle" product="default">Os oes gennyt gopi wrth gefn o dy ffôn <xliff:g id="name" example="LMODroid">%s</xliff:g> diwethaf, gellir ei adfer fan hyn.</string>
     <string name="intro_restore_button">Adfer o gopi wrth gefn</string>
-    <string name="update_recovery_title">Diweddaru Modd Adfer Lineage </string>
-    <string name="update_recovery_description">Yn diweddaru Adfer Lineage wrth y cychwyn cyntaf wedi pob diweddariad</string>
+    <string name="update_recovery_title">Diweddaru Modd Adfer LMODroid </string>
+    <string name="update_recovery_description">Yn diweddaru Adfer LMODroid wrth y cychwyn cyntaf wedi pob diweddariad</string>
     <string name="update_recovery_warning">Bydd yr Adfer yn cael ei ddiweddaru cyn gynted ag y byddi wedi cwblhau\'r gosod. Os hoffet ti ei gadw\'n gyfan, analluoga\'r nodwedd hon.</string>
-    <string name="update_recovery_setting">Diweddara Adfer Lineage cohr yn ochr â\'r OS</string>
+    <string name="update_recovery_setting">Diweddara Adfer LMODroid cohr yn ochr â\'r OS</string>
 </resources>

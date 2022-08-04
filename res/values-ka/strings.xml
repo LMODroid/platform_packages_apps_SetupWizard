@@ -78,10 +78,10 @@
     <string name="intro_restore_subtitle" product="tablet">თუ თქვენი წინა <xliff:g id="name" example="LMODroid">%s</xliff:g>-პლანშეტის სამარქაფო ასლი გაქვთ, აქედან შეძლებთ აღდგენას.</string>
     <string name="intro_restore_subtitle" product="default">თუ თქვენი წინა <xliff:g id="name" example="LMODroid">%s</xliff:g>-ტელეფონის სამარქაფო ასლი გაქვთ, აქედან შეძლებთ აღდგენას.</string>
     <string name="intro_restore_button">აღდგენა მარქაფიდან</string>
-    <string name="update_recovery_title">Lineage-აღმდგენის განახლება</string>
-    <string name="update_recovery_description">განაახლებს Lineage-აღმდგენს პირველი ჩატვირთვისას, ყოველი განახლების შემდგომ.</string>
+    <string name="update_recovery_title">LMODroid-აღმდგენის განახლება</string>
+    <string name="update_recovery_description">განაახლებს LMODroid-აღმდგენს პირველი ჩატვირთვისას, ყოველი განახლების შემდგომ.</string>
     <string name="update_recovery_warning">აღმდგენი განახლდება გამართვის დასრულებისთანავე. თუ გსურთ, ხელუხლებელი დარჩეს, გათიშეთ ეს შესაძლებლობა.</string>
-    <string name="update_recovery_setting">განახლდეს Lineage-აღმდგენი სისტემასთან ერთად</string>
+    <string name="update_recovery_setting">განახლდეს LMODroid-აღმდგენი სისტემასთან ერთად</string>
     <string name="update_recovery_full_description"><xliff:g id="recovery_update_description">%1$s</xliff:g>\n<xliff:g id="recovery_update_warning">%2$s</xliff:g></string>
     <string name="setup_navigation">სამოძრაო</string>
     <string name="navigation_summary">აირჩიეთ სასურველი ხერხი სამოძრაოდ</string>

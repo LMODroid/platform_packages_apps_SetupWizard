@@ -67,8 +67,8 @@
     <string name="lockscreen_setup_screen_lock_setup">Opsætning</string>
     <string name="intro_restore_subtitle" product="tablet">Hvis du har en sikkerhedskopi fra din sidste <xliff:g id="name" example="LMODroid">%s</xliff:g> tablet, kan du gendanne den her.</string>
     <string name="intro_restore_subtitle" product="default">Hvis du har en sikkerhedskopi fra din sidste <xliff:g id="name" example="LMODroid">%s</xliff:g> telefon, kan du gendanne den her.</string>
-    <string name="update_recovery_title">Opdater Lineage Genddanelse</string>
-    <string name="update_recovery_description">Opdateringer Lineage Recovery ved første opstart efter hver opdatering.</string>
+    <string name="update_recovery_title">Opdater LMODroid Genddanelse</string>
+    <string name="update_recovery_description">Opdateringer LMODroid Recovery ved første opstart efter hver opdatering.</string>
     <string name="update_recovery_warning">Gendannelse vil blive opdateret, så snart du er færdig med opsætningen. Hvis du ønsker at holde det intakt, skal du deaktivere denne funktion.</string>
-    <string name="update_recovery_setting">Opdater Lineage Recovery sammen med OS</string>
+    <string name="update_recovery_setting">Opdater LMODroid Recovery sammen med OS</string>
 </resources>

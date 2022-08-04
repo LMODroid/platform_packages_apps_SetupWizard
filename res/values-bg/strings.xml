@@ -76,8 +76,8 @@
     <string name="intro_restore_subtitle" product="tablet">Ако имате резервно копие от последния си <xliff:g id="name" example="LMODroid">%s</xliff:g> таблет, тук може да го възстановите.</string>
     <string name="intro_restore_subtitle" product="default">Ако имате резервно копие от последния си <xliff:g id="name" example="LMODroid">%s</xliff:g> телефон, тук може да го възстановите.</string>
     <string name="intro_restore_button">Възстановяване от архив</string>
-    <string name="update_recovery_title">Актуализиране на Lineage Recovery</string>
-    <string name="update_recovery_description">Актуализира Lineage Recovery при първо зареждане след всяка актуализация.</string>
+    <string name="update_recovery_title">Актуализиране на LMODroid Recovery</string>
+    <string name="update_recovery_description">Актуализира LMODroid Recovery при първо зареждане след всяка актуализация.</string>
     <string name="update_recovery_warning">Recovery ще се актуализира веднага щом завършите настройката. Ако искате да го запазите непокътнат, деактивирайте тази функция.</string>
-    <string name="update_recovery_setting">Актуализирайте Lineage Recovery заедно с операционната система</string>
+    <string name="update_recovery_setting">Актуализирайте LMODroid Recovery заедно с операционната система</string>
 </resources>

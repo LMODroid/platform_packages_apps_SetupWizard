@@ -77,7 +77,7 @@
     <string name="intro_restore_subtitle" product="tablet">Jika Anda memiliki pencadangan <xliff:g id="name" example="LMODroid">%s</xliff:g> tablet Anda sebelumnya, Anda dapat memulihkannya di sini.</string>
     <string name="intro_restore_subtitle" product="default">Jika Anda memiliki pencadangan <xliff:g id="name" example="LMODroid">%s</xliff:g> ponsel Anda sebelumnya, Anda dapat memulihkannya di sini.</string>
     <string name="intro_restore_button">Pulihkan dari cadangan</string>
-    <string name="update_recovery_title">Perbarui Lineage Recovery</string>
+    <string name="update_recovery_title">Perbarui LMODroid Recovery</string>
     <string name="update_recovery_warning">Recovery akan diupdate segera setelah Anda menyelesaikan penyiapan. Jika Anda ingin menjaganya tetap utuh, nonaktifkan fitur ini.</string>
     <string name="update_recovery_full_description"><xliff:g id="recovery_update_description">%1$s</xliff:g>\n<xliff:g id="recovery_update_warning">%2$s</xliff:g></string>
     <string name="setup_navigation">Navigasi</string>
