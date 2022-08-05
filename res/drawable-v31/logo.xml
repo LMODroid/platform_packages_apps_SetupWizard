@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Copyright (C) 2022 The LibreMobileOS Foundation
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+  <path
+      android:pathData="M42.78,248.79c15.41,-9.73 30.28,-21.36 44.28,-33.96 38.26,-34.43 66.48,-72.91 76.52,-87.98L180.5,101.48l18.03,24.59c19.35,26.39 49.43,65.21 82.67,97.26 16.62,16.02 33.51,29.84 49.76,39.54 16.44,9.81 30.66,14.48 42.36,14.48h94.94a212.28,212.28 0,0 1,-8.72 42.67h-86.23c-22.43,0 -44.39,-8.66 -64.23,-20.51 -20.04,-11.97 -39.55,-28.15 -57.5,-45.46 -26.65,-25.7 -51.04,-55 -69.92,-79.42 -15.46,20.1 -38.26,46.89 -66.07,71.92 -19.97,17.97 -43.38,35.81 -69.2,49.41A214.49,214.49 0,0 1,42.67 256c0,-2.41 0.04,-4.82 0.12,-7.21ZM42.78,248.79"
+      android:fillColor="@android:color/system_accent1_500"/>
+  <path
+      android:pathData="M58.6,337.05c10.83,-5.14 21.28,-10.79 31.19,-16.7 38.58,-22.96 67,-50.72 76.31,-60.21l14.52,-14.82 15.22,14.11c2.84,2.63 5.88,5.49 9.1,8.53 18.47,17.37 42.88,40.32 69.56,58.39 32,21.68 63.88,36.33 90.67,36.33h75.61a214.24,214.24 0,0 1,-32.45 42.66h-43.15c-40.14,0 -81.01,-20.91 -114.61,-43.67 -23.05,-15.61 -44.28,-34.95 -61.57,-50.69 -2.61,-2.38 -5.13,-4.67 -7.55,-6.86l-0.27,0.23c-15.83,13.86 -40.04,35.07 -69.56,52.65 -10.25,6.09 -21.26,12.11 -32.89,17.7a212.45,212.45 0,0 1,-20.13 -37.67ZM58.6,337.05"
+      android:fillColor="@android:color/system_accent1_400"/>
+  <path
+      android:pathData="M105.29,406.99c31.62,-16.4 54.48,-32.91 62.55,-39.49L180.71,357l13.34,9.89c19.1,14.17 47.29,34.71 78.66,51.71 26.59,14.41 53.71,25.28 78.29,28.47a211.91,211.91 0,0 1,-74.21 21.26c-8.42,-3.84 -16.59,-7.98 -24.41,-12.22 -27.37,-14.83 -52.2,-31.95 -70.89,-45.51 -9.97,7.07 -23.64,16.02 -40.11,25.35a214.21,214.21 0,0 1,-36.08 -28.96ZM105.29,406.99"
+      android:fillColor="@android:color/system_accent1_200"/>
+  <path
+      android:pathData="m410.98,234.69 l-61.03,-84.71 -34.13,47.38c13.4,12.47 25.93,22.26 37.02,28.89 13.02,7.78 19.51,8.45 20.49,8.45ZM410.98,234.69"
+      android:fillColor="@android:color/system_accent1_600"/>
+</vector>
