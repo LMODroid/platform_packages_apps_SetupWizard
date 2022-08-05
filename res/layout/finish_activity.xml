@@ -42,6 +42,15 @@
             android:gravity="center"
             android:padding="@dimen/content_margin_left"/>
 
+        <TextView
+            style="@style/WelcomeTitle"
+            android:id="@+id/lmo_motto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/lmo_motto_message"
+            android:hyphenationFrequency="none"/>
+
         <com.libremobileos.setupwizard.NavigationLayout
             android:id="@+id/navigation_bar"
             android:layout_width="match_parent"
