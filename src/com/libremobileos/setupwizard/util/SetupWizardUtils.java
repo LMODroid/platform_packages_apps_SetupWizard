@@ -55,6 +55,7 @@ import android.util.Log;
 import com.libremobileos.setupwizard.BiometricActivity;
 import com.libremobileos.setupwizard.BluetoothSetupActivity;
 import com.libremobileos.setupwizard.NetworkSetupActivity;
+import com.libremobileos.setupwizard.ScreenLockActivity;
 import com.libremobileos.setupwizard.SetupWizardApp;
 import com.libremobileos.setupwizard.SimMissingActivity;
 import com.libremobileos.setupwizard.wizardmanager.WizardManager;
@@ -285,6 +286,8 @@ public class SetupWizardUtils {
         }
         if (!hasBiometric(context)) {
             disableComponent(context, BiometricActivity.class);
+        } else {
+            disableComponent(context, ScreenLockActivity.class);
         }
         if (!hasTelephony(context) || !simMissing()) {
             disableComponent(context, SimMissingActivity.class);
