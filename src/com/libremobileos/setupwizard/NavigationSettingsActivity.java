@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2022-2023 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@ package com.libremobileos.setupwizard;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON_OVERLAY;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
+
+import static com.android.systemui.shared.recents.utilities.Utilities.isLargeScreen;
 
 import static com.android.internal.util.libremobileos.DeviceKeysConstants.KEY_MASK_APP_SWITCH;
 import static com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
@@ -49,6 +51,8 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
 
     private SetupWizardApp mSetupWizardApp;
 
+    private boolean mIsTaskbarEnabled;
+
     private String mSelection = NAV_BAR_MODE_GESTURAL_OVERLAY;
 
     private CheckBox mHideGesturalHint;
@@ -62,6 +66,8 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
         if (mSetupWizardApp.getSettingsBundle().containsKey(DISABLE_NAV_KEYS)) {
             navBarEnabled = mSetupWizardApp.getSettingsBundle().getBoolean(DISABLE_NAV_KEYS);
         }
+        mIsTaskbarEnabled = Settings.System.getInt(getContentResolver(),
+                Settings.System.ENABLE_TASKBAR, isLargeScreen(this) ? 1 : 0) == 1;
 
         int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
@@ -88,7 +94,6 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
             available--;
         }
 
-
         // Hide this page if the device has hardware keys but didn't enable navbar
         // or if there's <= 1 available navigation modes
         if (!navBarEnabled && hasHomeKey || available <= 1) {
@@ -102,6 +107,12 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
                 findViewById(R.id.navigation_illustration);
         final RadioGroup radioGroup = findViewById(R.id.navigation_radio_group);
         mHideGesturalHint = findViewById(R.id.hide_navigation_hint);
+
+        // Hide navigation hint checkbox when taskbar is enabled
+        if (mIsTaskbarEnabled) {
+            mHideGesturalHint.setVisibility(View.GONE);
+        }
+
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -130,6 +141,10 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
     }
 
     private void revealHintCheckbox() {
+        if (mIsTaskbarEnabled) {
+           return;
+        }
+
         mHideGesturalHint.animate().cancel();
 
         if (mHideGesturalHint.getVisibility() == View.VISIBLE) {
@@ -145,6 +160,10 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
     }
 
     private void hideHintCheckBox() {
+        if (mIsTaskbarEnabled) {
+           return;
+        }
+
         if (mHideGesturalHint.getVisibility() == View.INVISIBLE) {
             return;
         }
@@ -164,10 +183,12 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
     @Override
     protected void onNextPressed() {
         mSetupWizardApp.getSettingsBundle().putString(NAVIGATION_OPTION_KEY, mSelection);
-        boolean hideHint = mHideGesturalHint.isChecked();
-        Settings.System.putIntForUser(getContentResolver(),
-                Settings.System.NAVIGATION_BAR_HINT, hideHint ? 0 : 1,
-                UserHandle.USER_CURRENT);
+        if (!mIsTaskbarEnabled) {
+            boolean hideHint = mHideGesturalHint.isChecked();
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HINT, hideHint ? 0 : 1,
+                    UserHandle.USER_CURRENT);
+        }
         Intent intent = WizardManagerHelper.getNextIntent(getIntent(), Activity.RESULT_OK);
         nextAction(NEXT_REQUEST, intent);
     }
