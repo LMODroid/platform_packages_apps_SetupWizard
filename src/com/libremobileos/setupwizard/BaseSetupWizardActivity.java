@@ -304,7 +304,6 @@ public abstract class BaseSetupWizardActivity extends Activity implements Naviga
     protected void startAccessibilitySettings() {
         try {
             Intent intent = new Intent(ACTION_ACCESSIBILITY_SETTINGS);
-            intent.putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true);
             startFirstRunActivityForResult(intent, ACCESSIBILITY_SETTINGS_ACTIVITY_REQUEST);
             applyForwardTransition(TRANSITION_ID_DEFAULT);
         } catch (ActivityNotFoundException e) {
@@ -418,6 +417,7 @@ public abstract class BaseSetupWizardActivity extends Activity implements Naviga
     }
 
     public void startActivity(Intent intent) {
+        intent.putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true);
         super.startActivity(intent);
         if (isResumed() && mIsActivityVisible) {
             applyForwardTransition(getTransition());
@@ -426,6 +426,7 @@ public abstract class BaseSetupWizardActivity extends Activity implements Naviga
     }
 
     public void startActivityForResult(Intent intent, int requestCode) {
+        intent.putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true);
         super.startActivityForResult(intent, requestCode);
         if (isResumed() && mIsActivityVisible) {
             applyForwardTransition(getTransition());
