@@ -50,6 +50,9 @@
     <protected-broadcast android:name="com.libremobileos.setupwizard.LINEAGE_SETUP_COMPLETE"
                          android:permission="lineageos.permission.FINISH_SETUP"/>
 
+    <protected-broadcast android:name="com.libremobileos.setupwizard.SETUP_FINISHED"
+                         android:permission="lineageos.permission.FINISH_SETUP"/>
+
     <application android:label="@string/app_name"
                  android:icon="@mipmap/ic_launcher"
                  android:theme="@style/Theme.Setup"
@@ -295,20 +298,8 @@
                   android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="com.libremobileos.setupwizard.LINEAGE_SETUP_COMPLETE" />
+                <action android:name="com.libremobileos.setupwizard.SETUP_FINISHED"/>
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".SetupWizardExitActivity"
-                  android:configChanges="keyboard|keyboardHidden|mcc|mnc|orientation|screenSize"
-                  android:excludeFromRecents="true"
-                  android:immersive="true"
-                  android:exported="false"
-                  android:label="@@string/activity_label_empty"
-                  android:theme="@style/NoDisplay">
-            <intent-filter>
-                <action android:name="com.libremobileos.setupwizard.EXIT"/>
-                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
