@@ -17,8 +17,9 @@
 
 package com.libremobileos.setupwizard.wizardmanager;
 
+import static com.google.android.setupcompat.util.WizardManagerHelper.ACTION_NEXT;
+
 import static com.libremobileos.setupwizard.SetupWizardApp.ACTION_LOAD;
-import static com.libremobileos.setupwizard.SetupWizardApp.ACTION_NEXT;
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_ACTION_ID;
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_RESULT_CODE;
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_SCRIPT_URI;

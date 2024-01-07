@@ -33,7 +33,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.content.Context;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
@@ -190,8 +189,7 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
                     LMOSettings.System.NAVIGATION_BAR_HINT, hideHint ? 0 : 1,
                     UserHandle.USER_CURRENT);
         }
-        Intent intent = WizardManagerHelper.getNextIntent(getIntent(), Activity.RESULT_OK);
-        nextAction(NEXT_REQUEST, intent);
+        super.onNextPressed();
     }
 
     @Override

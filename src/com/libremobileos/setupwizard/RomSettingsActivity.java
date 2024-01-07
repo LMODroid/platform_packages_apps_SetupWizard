@@ -19,25 +19,16 @@ package com.libremobileos.setupwizard;
 
 import static com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.libremobileos.providers.LMOSettings;
 
 public class RomSettingsActivity extends BaseSetupWizardActivity {
@@ -74,12 +65,6 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
     public void onResume() {
         super.onResume();
         updateDisableNavkeysOption();
-    }
-
-    @Override
-    protected void onNextPressed() {
-        Intent intent = WizardManagerHelper.getNextIntent(getIntent(), Activity.RESULT_OK);
-        nextAction(NEXT_REQUEST, intent);
     }
 
     @Override
