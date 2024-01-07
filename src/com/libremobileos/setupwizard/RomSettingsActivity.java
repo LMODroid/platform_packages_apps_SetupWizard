@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
- *               2017-2020,2022 The LineageOS Project
+ *               2017-2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,7 +56,7 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
 
         View navKeysRow = findViewById(R.id.nav_keys);
         navKeysRow.setOnClickListener(mNavKeysClickListener);
-        mNavKeys = (CheckBox) findViewById(R.id.nav_keys_checkbox);
+        mNavKeys = findViewById(R.id.nav_keys_checkbox);
         mNavKeys.setChecked(Settings.System.getIntForUser(getContentResolver(),
                 LMOSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
     }
