@@ -19,8 +19,6 @@ package com.libremobileos.setupwizard;
 
 import static android.os.Binder.getCallingUserHandle;
 import static android.os.UserHandle.USER_CURRENT;
-import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
-import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
 
 import static com.libremobileos.setupwizard.Manifest.permission.FINISH_SETUP;
 import static com.libremobileos.setupwizard.SetupWizardApp.ACTION_SETUP_COMPLETE;

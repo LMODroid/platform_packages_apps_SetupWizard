@@ -20,8 +20,6 @@ package com.libremobileos.setupwizard;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.google.android.setupcompat.util.ResultCodes;
-
 import com.libremobileos.setupwizard.util.PhoneMonitor;
 
 public class SimMissingActivity extends BaseSetupWizardActivity {

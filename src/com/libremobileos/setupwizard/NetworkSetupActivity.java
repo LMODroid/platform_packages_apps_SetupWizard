@@ -22,12 +22,10 @@ import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_ENABLE_NEXT_ON_
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_PREFS_SET_BACK_TEXT;
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_PREFS_SHOW_BUTTON_BAR;
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_PREFS_SHOW_SKIP;
-import static com.libremobileos.setupwizard.SetupWizardApp.REQUEST_CODE_SETUP_NETWORK;
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_PREFS_SHOW_SKIP_TV;
+import static com.libremobileos.setupwizard.SetupWizardApp.REQUEST_CODE_SETUP_NETWORK;
 
 import android.content.Intent;
-
-import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
