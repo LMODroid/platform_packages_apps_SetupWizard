@@ -33,8 +33,6 @@ import com.libremobileos.providers.LMOSettings;
 
 public class RomSettingsActivity extends BaseSetupWizardActivity {
 
-    public static final String TAG = RomSettingsActivity.class.getSimpleName();
-
     private SetupWizardApp mSetupWizardApp;
 
     private CheckBox mNavKeys;
