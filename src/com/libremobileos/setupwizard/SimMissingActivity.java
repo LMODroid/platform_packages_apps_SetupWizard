@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
- *               2017-2022 The LineageOS Project
+ *               2017-2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,20 +20,17 @@ package com.libremobileos.setupwizard;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.libremobileos.setupwizard.util.PhoneMonitor;
+import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public class SimMissingActivity extends BaseSetupWizardActivity {
 
     public static final String TAG = SimMissingActivity.class.getSimpleName();
 
-    private PhoneMonitor mPhoneMonitor;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getGlifLayout().setDescriptionText(getString(R.string.sim_missing_summary));
-        mPhoneMonitor = PhoneMonitor.getInstance();
-        if (!mPhoneMonitor.simMissing()) {
+        if (!SetupWizardUtils.simMissing(this)) {
             finishAction(RESULT_OK);
         }
         ImageView simLogo = ((ImageView) findViewById(R.id.sim_slot_image));
