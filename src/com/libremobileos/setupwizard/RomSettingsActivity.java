@@ -38,6 +38,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
+import com.libremobileos.providers.LMOSettings;
 
 public class RomSettingsActivity extends BaseSetupWizardActivity {
 
@@ -66,7 +67,7 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
         navKeysRow.setOnClickListener(mNavKeysClickListener);
         mNavKeys = (CheckBox) findViewById(R.id.nav_keys_checkbox);
         mNavKeys.setChecked(Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
+                LMOSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
     }
 
     @Override
@@ -99,7 +100,7 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
     private void updateDisableNavkeysOption() {
         final Bundle myPageBundle = mSetupWizardApp.getSettingsBundle();
         boolean enabled = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0;
+                LMOSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0;
         boolean checked = myPageBundle.containsKey(DISABLE_NAV_KEYS) ?
                 myPageBundle.getBoolean(DISABLE_NAV_KEYS) :
                 enabled;

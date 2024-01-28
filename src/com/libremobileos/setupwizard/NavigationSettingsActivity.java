@@ -22,7 +22,7 @@ import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OV
 
 import static com.android.systemui.shared.recents.utilities.Utilities.isLargeScreen;
 
-import static com.android.internal.util.libremobileos.DeviceKeysConstants.KEY_MASK_APP_SWITCH;
+import static com.libremobileos.util.DeviceKeysConstants.KEY_MASK_APP_SWITCH;
 import static com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
 import static com.libremobileos.setupwizard.SetupWizardApp.NAVIGATION_OPTION_KEY;
 
@@ -43,6 +43,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
+import com.libremobileos.providers.LMOSettings;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public class NavigationSettingsActivity extends BaseSetupWizardActivity {
@@ -67,7 +68,7 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
             navBarEnabled = mSetupWizardApp.getSettingsBundle().getBoolean(DISABLE_NAV_KEYS);
         }
         mIsTaskbarEnabled = Settings.System.getInt(getContentResolver(),
-                Settings.System.ENABLE_TASKBAR, isLargeScreen(this) ? 1 : 0) == 1;
+                LMOSettings.System.ENABLE_TASKBAR, isLargeScreen(this) ? 1 : 0) == 1;
 
         int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
@@ -186,7 +187,7 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
         if (!mIsTaskbarEnabled) {
             boolean hideHint = mHideGesturalHint.isChecked();
             Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_HINT, hideHint ? 0 : 1,
+                    LMOSettings.System.NAVIGATION_BAR_HINT, hideHint ? 0 : 1,
                     UserHandle.USER_CURRENT);
         }
         Intent intent = WizardManagerHelper.getNextIntent(getIntent(), Activity.RESULT_OK);

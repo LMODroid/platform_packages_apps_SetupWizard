@@ -64,8 +64,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.internal.libremobileos.hardware.LineageHardwareManager;
-import com.android.internal.util.libremobileos.PackageManagerUtils;
+import com.libremobileos.hardware.LineageHardwareManager;
+import com.libremobileos.util.PackageManagerUtils;
 
 public class SetupWizardUtils {
 
