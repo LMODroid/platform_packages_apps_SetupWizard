@@ -58,7 +58,6 @@ import com.libremobileos.setupwizard.ScreenLockActivity;
 import com.libremobileos.setupwizard.SetupWizardApp;
 import com.libremobileos.setupwizard.SetupWizardExitWorker;
 import com.libremobileos.setupwizard.SimMissingActivity;
-import com.libremobileos.setupwizard.wizardmanager.WizardManager;
 import com.libremobileos.setupwizard.RomSettingsActivity;
 
 import java.io.File;
