@@ -53,14 +53,14 @@
     <string name="location_agps_access_summary">When location is on, <b>download satellite assistance data from the internet</b>, which can greatly improve the GPS startup performance.</string>
 
     <!-- Recovery update page -->
-    <string name="update_recovery_title">Update LMODroid Recovery</string>
-    <string name="update_recovery_description">Updates LMODroid Recovery on first boot subsequent to every update.</string>
+    <string name="update_recovery_title">Update <xliff:g id="name" example="LMODroid">%1$s</xliff:g> Recovery</string>
+    <string name="update_recovery_description">Updates <xliff:g id="name" example="LMODroid">%1$s</xliff:g> Recovery on first boot subsequent to every update.</string>
     <string name="update_recovery_warning">Recovery will be updated as soon as you finish the setup. If you wish to keep it intact, disable this feature.</string>
-    <string name="update_recovery_setting">Update LMODroid Recovery alongside the OS</string>
+    <string name="update_recovery_setting">Update <xliff:g id="name" example="LMODroid">%1$s</xliff:g> Recovery alongside the OS</string>
     <string name="update_recovery_full_description"><xliff:g id="recovery_update_description">%1$s</xliff:g>\n<xliff:g id="recovery_update_warning">%2$s</xliff:g></string>
 
     <!-- LMODroid features page -->
-    <string name="setup_services">LMODroid features</string>
+    <string name="setup_services"><xliff:g id="name" example="LMODroid">%1$s</xliff:g> features</string>
     <string name="services_pp_explanation">Services to extend the capabilities of your device.</string>
     <string name="services_find_privacy_policy">You can read the privacy policy on another device by visiting <xliff:g id="uri" example="https://libremobileos.com/legal">%1$s</xliff:g></string>
     <string name="services_help_improve_cm">Help improve <xliff:g id="name" example="LMODroid">%s</xliff:g></string>

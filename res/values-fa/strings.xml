@@ -17,39 +17,77 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">راهنمای راه‌اندازی</string>
+
+    <string name="next">بعدی</string>
+    <string name="skip">رد شدن</string>
     <string name="start">شروع</string>
+    <string name="done">تمام</string>
+    <string name="ok">تایید</string>
     <string name="loading">یک لحظه لطفا\u2026</string>
-    <string name="setup_complete">راه‌اندازی کامل شد</string>
-    <string name="setup_welcome">خوش آمدید</string>
-    <string name="setup_wifi">انتخاب وای‌فای</string>
-    <string name="setup_sim_missing">دستگاه فاقد سیم کارت است</string>
-    <string name="setup_choose_data_sim">انتخاب سیم کارت برای داده همراه</string>
-    <string name="setup_location">خدمات مکان</string>
-    <string name="setup_other">سایر خدمات</string>
-    <string name="setup_datetime">تاریخ و زمان</string>
-    <string name="setup_current_date">تاریخ کنونی</string>
-    <string name="setup_current_time">زمان کنونی</string>
-    <string name="sim_missing_summary" product="tablet">سیم کارتی در تبلت شما یافت نشد. برای قرار دادن یک سیم کارت، دستورالعمل همراه دستگاه خود را بخوانید.</string>
-    <string name="sim_missing_summary" product="default">سیم کارتی در گوشی شما یافت نشد. برای قرار دادن یک سیم کارت، دستورالعمل همراه دستگاه خود را بخوانید.</string>
-    <string name="choose_data_sim_summary" product="tablet">از کدام سیم کارت برای داده همراه استفاده می‌کنید؟ سیم کارت انتخابی ممکن است باعث هزینه‌های اضافی داده شود چرا که برای راه‌اندازی تبلت شما استفاده می‌شود.</string>
-    <string name="choose_data_sim_summary" product="default">از کدام سیم کارت برای داده همراه استفاده می‌کنید؟ سیم کارت انتخابی ممکن است باعث هزینه‌های اضافی داده شود چرا که برای راه‌اندازی گوشی شما استفاده می‌شود.</string>
-    <string name="date_time_summary">منطقه‌ی زمانی و تاریخ فعلی را در صورت نیاز تنظیم کنید</string>
-    <string name="location_access_summary"><b>به برنامه‌هایی که درخواست مکان می‌کنند اجازه دهید</b> از اطلاعات مکان شما استفاده کنند. ممکن است این استفاده شامل مکان فعلی و قبلی شما باشد.</string>
-    <string name="setup_mobile_data_no_service">بدون سرویس</string>
-    <string name="setup_mobile_data_emergency_only">فقط تماس اضطراری</string>
-    <string name="no">خیر</string>
-    <string name="yes">بله</string>
+
+    <!-- Welcome page -->
+    <string name="setup_welcome_message">خوش آمدید به <xliff:g id="name" example="LMODroid">%1$s</xliff:g></string>
+    <string name="setup_managed_profile_welcome_message">پروفایل کاری خود را تنظیم کنید</string>
     <string name="emergency_call">تماس اضطراری</string>
-    <string name="setup_services">ویژگی‌های المودروید</string>
-    <string name="services_os_nav_keys_label"><b>استفاده از کلیدهای پیمایش صفحه نمایش</b> به جای کلیدهای سخت‌افزاری.</string>
+    <string name="accessibility_settings">تنظیمات دسترسی</string>
+
+    <!-- Locale page -->
+    <string name="setup_locale">زبان</string>
+    <string name="sim_locale_changed">%1$s سیم‌کارت شناسایی شد</string>
+
+    <!-- Missing SIM page -->
+    <string name="setup_sim_missing">SIM card missing</string>
+    <string name="sim_missing_summary" product="tablet">سیم‌کارت در تبلت شما شناسایی نشده است. برای قرار دادن سیم‌کارت، دستورالعمل‌های همراه دستگاه خود را مطالعه کنید.</string>
+    <string name="sim_missing_summary" product="default">سیم‌کارت در گوشی شما شناسایی نشده است. برای قرار دادن سیم‌کارت، دستورالعمل‌های همراه دستگاه خود را مطالعه کنید.</string>
+
+    <!-- Date & time page -->
+    <string name="setup_datetime">تاریخ و ساعت</string>
+    <string name="date_time_summary">منطقه‌ی زمانی و تاریخ فعلی را در صورت نیاز تنظیم کنید</string>
+    <string name="setup_current_date">تاریخ امروز</string>
+    <string name="setup_current_time">ساعت امروز</string>
+
+    <!-- Restore backup page -->
+    <string name="intro_restore_title">بازیابی برنامه‌ها و داده‌ها</string>
+    <string name="intro_restore_subtitle">اگر پشتیبانی Seedvault دارید از <xliff:g id="name" example="LMODroid">%s</xliff:g> یا هر سیستم‌عامل دیگری، می‌توانید آن را اینجا بازیابی کنید.</string>
+    <string name="intro_restore_button">بازیابی از پشتیبان</string>
+
+    <!-- Location page -->
+    <string name="setup_location">خدمات مکان</string>
+    <string name="location_access_summary"><b>اجازه دادن به برنامه‌هایی که از شما درخواست داده‌اند</b> برای استفاده از اطلاعات مکان شما، که شاید شامل مکان فعلی و مکان‌های گذشته شما شود.</string>
+    <string name="location_agps_access_summary">وقتی مکان فعال است، <b>دانلود داده‌های کمکی ماهواره‌ای از اینترنت</b>که می‌تواند به عملکرد بهتر GPS کمک کند</string>
+
+    <!-- Recovery update page -->
+    <string name="update_recovery_title">به‌روزرسانی ریکاوری <xliff:g id="name" example="LMODroid">%1$s</xliff:g></string>
+    <string name="update_recovery_description">به‌روزرسانی ریکاوری <xliff:g id="name" example="LMODroid">%1$s</xliff:g> در اولین بوت پس از هر به‌روزرسانی</string>
+    <string name="update_recovery_warning">ریکاوری به محض اتمام راه اندازی بروز می شود. اگر می‌خواهید آن را حفظ کنید، این ویژگی را غیرفعال کنید.</string>
+    <string name="update_recovery_setting">به‌روزرسانی ریکاوری <xliff:g id="name" example="LMODroid">%1$s</xliff:g> همراه با سیستم عامل</string>
+
+    <!-- LMODroid features page -->
+    <string name="setup_services">ویژگی‌های <xliff:g id="name" example="LMODroid">%1$s</xliff:g></string>
+    <string name="services_pp_explanation">خدمات برای گسترش قابلیت‌های دستگاه شما</string>
+    <string name="services_find_privacy_policy">شما می‌توانید سیاست حفظ حریم خصوصی را بر روی دستگاه دیگری بازدید کنید به <xliff:g id="uri" example="https://libremobileos.com/legal">%1$s</xliff:g></string>
+    <string name="services_help_improve_cm">کمک به بهبود <xliff:g id="name" example="LMODroid">%s</xliff:g></string>
+    <string name="services_metrics_label"><xliff:g id="name" example="Help improve LMODroid">%1$s</xliff:g> با ارسال خودکار داده‌های تشخیصی و استفاده به <xliff:g id="name" example="LMODroid">%2$s</xliff:g>این اطلاعات قابل استفاده برای شناسایی شما نیست و به تیم‌هایی که در زمینه‌هایی مانند عمر باتری٬ بهبود عکلکرد و ویژگی‌های جدید در <xliff:g id="name" example="LMODroid">%3$s</xliff:g> کار می‌کنند کمک می‌کند</string>
+    <string name="services_os_nav_keys_label"><b>استفاده از کلیدهای ناوبری صفحه نمایش</b> به جای کلیدهای سخت‌افزاری</string>
     <string name="lmo_motto_message">از طعم آزادی لذت ببرید</string>
-    <string name="settings_biometric_setup_title">انتخاب قفل پشتیبان صفحه</string>
-    <string name="settings_biometric_setup_details">چگونه می‌خواهید صفحه خود را قفل کنید؟</string>
-    <string name="fingerprint_setup_title">تنظیمات اثر انگشت</string>
-    <string name="fingerprint_setup_summary">برای استفاده از حسگر اثر انگشت برای باز کردن قفل صفحه، به این موارد نیاز دارید:</string>
-    <string name="fingerprint_setup_add_fingerprint">افزودن اثر انگشت خود</string>
-    <string name="biometric_setup_backup_lock_method">تنظیم روش دوم باز کردن قفل</string>
-    <string name="biometric_setup_screen_lock_setup">تنظیمات قفل صفحه</string>
-    <string name="settings_lockscreen_setup_details">چگونه می‌خواهید صفحه خود را قفل کنید؟</string>
-    <string name="lockscreen_setup_screen_lock_setup">برپا سازی</string>
+
+    <!-- Navigation page -->
+    <string name="setup_navigation">ناوبری</string>
+    <string name="navigation_summary">انتخاب روش ناوبری مورد علاقه</string>
+    <string name="gesture_navigation">ناوبری با حرکات ژستی</string>
+    <string name="two_button_navigation">ناوبری دو کلیدی</string>
+    <string name="navbar_navigation">ناوبری سه کلیدی</string>
+    <string name="hide_gesture_hint">مخفی کردن راهنمای ناوبری با حرکات ژستی</string>
+
+    <!-- Theme page -->
+    <string name="setup_theme">تم</string>
+    <string name="theme_summary">تم تاریک از پس زمینه‌ی سیاه استفاده می‌کند تا برخی از صفحات باعث طولانی‌تر شدن عمر باتری شود</string>
+    <string name="dark">تاریک</string>
+    <string name="light">روشن</string>
+
+    <!-- Volume Panel -->
+    <string name="setup_volume_panel">صفحه تنظیم صدا</string>
+    <string name="volume_panel_summary">میخواهید صفحه تنظیم صدا در کدام سمت باشد؟</string>
+    <string name="right_hand">سمت راست</string>
+    <string name="left_hand">سمت چپ</string>
 </resources>
