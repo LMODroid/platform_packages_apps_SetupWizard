@@ -228,9 +228,6 @@ public class SetupWizardUtils {
         };
     }
 
-    public static void disableComponentsForMissingFeatures(Context context) {
-    }
-
     /**
      * Disable the Home component, which is presumably SetupWizardActivity at this time.
      */
