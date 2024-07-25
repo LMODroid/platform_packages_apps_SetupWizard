@@ -6,19 +6,22 @@
 
 package com.libremobileos.setupwizard;
 
-import static com.google.android.setupcompat.util.ResultCodes.RESULT_ACTIVITY_NOT_FOUND;
 import static com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP;
 
+import android.annotation.Nullable;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.activity.result.ActivityResult;
 
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
-public class SimMissingActivity extends SubBaseActivity {
+public class SimMissingActivity extends BaseSetupWizardActivity {
 
-    protected void onStartSubactivity() {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (!SetupWizardUtils.simMissing(this) || !SetupWizardUtils.hasTelephony(this)) {
             finishAction(RESULT_SKIP);
             return;
@@ -28,25 +31,6 @@ public class SimMissingActivity extends SubBaseActivity {
         ImageView simLogo = ((ImageView) findViewById(R.id.sim_slot_image));
         simLogo.setImageResource(R.drawable.sim);
         simLogo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-    }
-
-    @Override
-    protected void onSubactivityResult(ActivityResult activityResult) {
-        int resultCode = activityResult.getResultCode();
-        Intent data = activityResult.getData();
-        if (resultCode != RESULT_CANCELED) {
-            nextAction(resultCode, data);
-        } else if (mIsSubactivityNotFound) {
-            finishAction(RESULT_ACTIVITY_NOT_FOUND);
-        } else if (data != null && data.getBooleanExtra("onBackPressed", false)) {
-            if (SetupWizardUtils.simMissing(this)) {
-                onStartSubactivity();
-            } else {
-                finishAction(RESULT_CANCELED, data);
-            }
-          } else if (!SetupWizardUtils.simMissing(this)) {
-            nextAction(RESULT_OK);
-        }
     }
 
     @Override
