@@ -29,10 +29,7 @@ public abstract class SubBaseActivity extends BaseSetupWizardActivity {
 
     protected abstract void onStartSubactivity();
 
-    private final ActivityResultLauncher<Intent> mSubactivityResultLauncher =
-            registerForActivityResult(
-                    new StartDecoratedActivityForResult(),
-                    SubBaseActivity.this::onSubactivityResult);
+    private ActivityResultLauncher<Intent> mSubactivityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +37,19 @@ public abstract class SubBaseActivity extends BaseSetupWizardActivity {
             Log.d(TAG, "onCreate savedInstanceState=" + savedInstanceState);
         }
         super.onCreate(savedInstanceState);
+        mSubactivityResultLauncher = registerForActivityResult(
+                new StartDecoratedActivityForResult(),
+                SubBaseActivity.this::onSubactivityResult);
         setNextAllowed(false);
         if (savedInstanceState == null) {
             onStartSubactivity();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSubactivityResultLauncher.unregister();
     }
 
     @Override
