@@ -10,11 +10,4 @@
     <string name="wizard_script_uri" translatable="false">android.resource://com.libremobileos.setupwizard/raw/wizard_script</string>
     <string name="wizard_script_user_uri" translatable="false">android.resource://com.libremobileos.setupwizard/raw/wizard_script_user</string>
     <bool name="config_isLargeNoTouch">false</bool>
-
-    <!-- Partner customization -->
-    <bool name="dynamic_color_enabled">true</bool>
-    <bool name="enable_partner_experiment">true</bool>
-    <bool name="enable_quick_enhanced_biometrics_flow">true</bool>
-    <bool name="extended_partner_config_enabled">true</bool>
-    <bool name="full_dynamic_color_enabled">true</bool>
 </resources>
