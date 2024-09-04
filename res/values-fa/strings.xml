@@ -57,13 +57,13 @@
     <string name="location_agps_access_summary">وقتی مکان فعال است، <b>دانلود داده‌های کمکی ماهواره‌ای از اینترنت</b>که می‌تواند به عملکرد بهتر GPS کمک کند</string>
 
     <!-- Recovery update page -->
-    <string name="update_recovery_title">به‌روزرسانی ریکاوری <xliff:g id="name" example="LMODroid">%1$s</xliff:g></string>
-    <string name="update_recovery_description">به‌روزرسانی ریکاوری <xliff:g id="name" example="LMODroid">%1$s</xliff:g> در اولین بوت پس از هر به‌روزرسانی</string>
+    <string name="update_recovery_title">به‌روزرسانی LMODroid Recovery</string>
+    <string name="update_recovery_description">به‌روزرسانی LMODroid Recovery در اولین بوت پس از هر به‌روزرسانی.</string>
     <string name="update_recovery_warning">ریکاوری به محض اتمام راه اندازی بروز می شود. اگر می‌خواهید آن را حفظ کنید، این ویژگی را غیرفعال کنید.</string>
-    <string name="update_recovery_setting">به‌روزرسانی ریکاوری <xliff:g id="name" example="LMODroid">%1$s</xliff:g> همراه با سیستم عامل</string>
+    <string name="update_recovery_setting">به‌روزرسانی LMODroid Recovery همراه با سیستم عامل</string>
 
     <!-- LMODroid features page -->
-    <string name="setup_services">ویژگی‌های <xliff:g id="name" example="LMODroid">%1$s</xliff:g></string>
+    <string name="setup_services">ویژگی‌های LMODroid</string>
     <string name="services_pp_explanation">خدمات برای گسترش قابلیت‌های دستگاه شما</string>
     <string name="services_find_privacy_policy">شما می‌توانید سیاست حفظ حریم خصوصی را بر روی دستگاه دیگری بازدید کنید به <xliff:g id="uri" example="https://libremobileos.com/legal">%1$s</xliff:g></string>
     <string name="services_help_improve_cm">کمک به بهبود <xliff:g id="name" example="LMODroid">%s</xliff:g></string>
