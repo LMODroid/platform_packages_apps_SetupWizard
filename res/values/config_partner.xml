@@ -5,5 +5,7 @@
 -->
 <!-- Partner customization for GMS SetupWizard -->
 <resources>
+    <bool name="dynamic_color_enabled">true</bool>
+    <bool name="full_dynamic_color_enabled">true</bool>
     <bool name="show_payment_action">false</bool>
 </resources>
