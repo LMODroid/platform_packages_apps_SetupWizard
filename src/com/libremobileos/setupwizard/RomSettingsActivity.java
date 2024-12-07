@@ -7,6 +7,7 @@
 package com.libremobileos.setupwizard;
 
 import static com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
+import static com.libremobileos.setupwizard.SetupWizardApp.KEY_SEND_METRICS;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,13 +19,23 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.libremobileos.hardware.LineageHardwareManager;
 import com.libremobileos.providers.LMOSettings;
 
 public class RomSettingsActivity extends BaseSetupWizardActivity {
 
     private SetupWizardApp mSetupWizardApp;
 
+    private CheckBox mMetrics;
     private CheckBox mNavKeys;
+
+    private boolean mSupportsKeyDisabler = false;
+
+    private final View.OnClickListener mMetricsClickListener = view -> {
+        boolean checked = !mMetrics.isChecked();
+        mMetrics.setChecked(checked);
+        mSetupWizardApp.getSettingsBundle().putBoolean(KEY_SEND_METRICS, checked);
+    };
 
     private final View.OnClickListener mNavKeysClickListener = view -> {
         boolean checked = !mNavKeys.isChecked();
@@ -38,20 +49,45 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
         mSetupWizardApp = (SetupWizardApp) getApplication();
         setNextText(R.string.next);
 
-        String servicesFullDescription = getString(R.string.services_pp_explanation);
+        String os_name = getString(R.string.os_name);
+        String privacyPolicy = getString(R.string.services_pp_explanation, os_name);
+        String privacyPolicyUri = getString(R.string.services_privacy_policy_uri);
+        String policySummary = getString(R.string.services_find_privacy_policy, privacyPolicyUri);
+        String servicesFullDescription = getString(R.string.services_full_description,
+                privacyPolicy, policySummary);
         getGlifLayout().setDescriptionText(servicesFullDescription);
+
+        View metricsRow = findViewById(R.id.metrics);
+        metricsRow.setOnClickListener(mMetricsClickListener);
+        metricsRow.requestFocus();
+        String metricsHelpImproveLMO =
+                getString(R.string.services_help_improve_cm, os_name);
+        String metricsSummary = getString(R.string.services_metrics_label,
+                metricsHelpImproveLMO, os_name, os_name);
+        final SpannableStringBuilder metricsSpan = new SpannableStringBuilder(metricsSummary);
+        metricsSpan.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                0, metricsHelpImproveLMO.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        TextView metrics = findViewById(R.id.enable_metrics_summary);
+        metrics.setText(metricsSpan);
+        mMetrics = findViewById(R.id.enable_metrics_checkbox);
 
         View navKeysRow = findViewById(R.id.nav_keys);
         navKeysRow.setOnClickListener(mNavKeysClickListener);
         mNavKeys = findViewById(R.id.nav_keys_checkbox);
-        mNavKeys.setChecked(Settings.System.getIntForUser(getContentResolver(),
-                LMOSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
+        mSupportsKeyDisabler = isKeyDisablerSupported(this);
+        if (mSupportsKeyDisabler) {
+            mNavKeys.setChecked(Settings.System.getIntForUser(getContentResolver(),
+                    LMOSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
+        } else {
+            navKeysRow.setVisibility(View.GONE);
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
         updateDisableNavkeysOption();
+        updateMetricsOption();
     }
 
     @Override
@@ -69,14 +105,30 @@ public class RomSettingsActivity extends BaseSetupWizardActivity {
         return R.drawable.ic_features;
     }
 
-    private void updateDisableNavkeysOption() {
+    private void updateMetricsOption() {
         final Bundle myPageBundle = mSetupWizardApp.getSettingsBundle();
-        boolean enabled = Settings.System.getIntForUser(getContentResolver(),
-                LMOSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0;
-        boolean checked = myPageBundle.containsKey(DISABLE_NAV_KEYS) ?
-                myPageBundle.getBoolean(DISABLE_NAV_KEYS) :
-                enabled;
-        mNavKeys.setChecked(checked);
-        myPageBundle.putBoolean(DISABLE_NAV_KEYS, checked);
+        boolean metricsChecked =
+                !myPageBundle.containsKey(KEY_SEND_METRICS) || myPageBundle
+                        .getBoolean(KEY_SEND_METRICS);
+        mMetrics.setChecked(metricsChecked);
+        myPageBundle.putBoolean(KEY_SEND_METRICS, metricsChecked);
+    }
+
+    private void updateDisableNavkeysOption() {
+        if (mSupportsKeyDisabler) {
+            final Bundle myPageBundle = mSetupWizardApp.getSettingsBundle();
+            boolean enabled = Settings.System.getIntForUser(getContentResolver(),
+                    LMOSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0;
+            boolean checked = myPageBundle.containsKey(DISABLE_NAV_KEYS) ?
+                    myPageBundle.getBoolean(DISABLE_NAV_KEYS) :
+                    enabled;
+            mNavKeys.setChecked(checked);
+            myPageBundle.putBoolean(DISABLE_NAV_KEYS, checked);
+        }
+    }
+
+    private static boolean isKeyDisablerSupported(Context context) {
+        final LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+        return hardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE);
     }
 }

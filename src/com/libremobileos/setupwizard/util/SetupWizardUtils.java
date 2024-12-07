@@ -20,6 +20,7 @@ import static com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP;
 
 import static com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
 import static com.libremobileos.setupwizard.SetupWizardApp.ENABLE_RECOVERY_UPDATE;
+import static com.libremobileos.setupwizard.SetupWizardApp.KEY_SEND_METRICS;
 import static com.libremobileos.setupwizard.SetupWizardApp.LOGV;
 import static com.libremobileos.setupwizard.SetupWizardApp.NAVIGATION_OPTION_KEY;
 import static com.libremobileos.setupwizard.SetupWizardApp.UPDATE_RECOVERY_PROP;
@@ -51,12 +52,10 @@ import android.util.Log;
 
 import com.libremobileos.setupwizard.BaseSetupWizardActivity;
 import com.libremobileos.setupwizard.SetupWizardApp;
-import com.libremobileos.setupwizard.RomSettingsActivity;
 
 import java.io.File;
 import java.util.List;
 
-import com.libremobileos.hardware.LineageHardwareManager;
 import com.libremobileos.providers.LMOSettings;
 import com.libremobileos.util.PackageManagerUtils;
 
@@ -192,6 +191,7 @@ public class SetupWizardUtils {
                     Settings.Secure.TV_USER_SETUP_COMPLETE, 1);
         }
 
+        handleEnableMetrics(context);
         handleNavKeys(context);
         handleRecoveryUpdate();
         handleNavigationOption();
@@ -232,15 +232,7 @@ public class SetupWizardUtils {
         };
     }
 
-    public static boolean isKeyDisablerSupported(Context context) {
-        final LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
-        return hardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE);
-    }
-
     public static void disableComponentsForMissingFeatures(Context context) {
-        if (!isKeyDisablerSupported(context)) {
-            disableComponent(context, RomSettingsActivity.class);
-        }
     }
 
     /**
@@ -280,6 +272,17 @@ public class SetupWizardUtils {
             int enabledState) {
         context.getPackageManager().setComponentEnabledSetting(componentName,
                 enabledState, DONT_KILL_APP);
+    }
+
+    private static void handleEnableMetrics(Context context) {
+        Bundle privacyData = SetupWizardApp.getSettingsBundle();
+        if (privacyData != null
+                && privacyData.containsKey(KEY_SEND_METRICS)) {
+            Settings.Secure.putInt(context.getContentResolver(),
+                    LMOSettings.Secure.STATS_COLLECTION,
+                    privacyData.getBoolean(KEY_SEND_METRICS)
+                            ? 1 : 0);
+        }
     }
 
     private static void handleNavKeys(Context context) {
