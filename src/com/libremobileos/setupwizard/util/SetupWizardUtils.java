@@ -50,6 +50,7 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.libremobileos.hardware.LineageHardwareManager;
 import com.libremobileos.providers.LMOSettings;
 import com.libremobileos.util.PackageManagerUtils;
 import com.libremobileos.setupwizard.BaseSetupWizardActivity;
@@ -323,6 +324,9 @@ public class SetupWizardUtils {
             Settings.System.putIntForUser(context.getContentResolver(),
                     LMOSettings.System.FORCE_SHOW_NAVBAR, enabled ? 1 : 0,
                     UserHandle.USER_CURRENT);
+
+            final LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+            hardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE, enabled);
         }
     }
 
