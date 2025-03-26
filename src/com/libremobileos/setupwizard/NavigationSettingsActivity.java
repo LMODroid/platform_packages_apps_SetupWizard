@@ -8,8 +8,6 @@ package com.libremobileos.setupwizard;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
 
-import static com.android.systemui.shared.recents.utilities.Utilities.isLargeScreen;
-
 import static com.libremobileos.util.DeviceKeysConstants.KEY_MASK_APP_SWITCH;
 import static com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
 import static com.libremobileos.setupwizard.SetupWizardApp.NAVIGATION_OPTION_KEY;

@@ -10,10 +10,10 @@ import static com.google.android.setupcompat.util.ResultCodes.RESULT_ACTIVITY_NO
 
 import static com.libremobileos.setupwizard.SetupWizardApp.ACTION_RESTORE_FROM_BACKUP;
 
-import androidx.activity.result.ActivityResult;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.activity.result.ActivityResult;
 
 import com.libremobileos.setupwizard.R;
 import com.libremobileos.setupwizard.SubBaseActivity;

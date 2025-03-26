@@ -15,7 +15,6 @@ import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_PREFS_SHOW_SKIP
 import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_PREFS_SHOW_SKIP_TV;
 
 import android.content.Intent;
-import android.os.Bundle;
 
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 

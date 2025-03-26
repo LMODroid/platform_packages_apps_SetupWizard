@@ -50,14 +50,13 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.libremobileos.providers.LMOSettings;
+import com.libremobileos.util.PackageManagerUtils;
 import com.libremobileos.setupwizard.BaseSetupWizardActivity;
 import com.libremobileos.setupwizard.SetupWizardApp;
 
 import java.io.File;
 import java.util.List;
-
-import com.libremobileos.providers.LMOSettings;
-import com.libremobileos.util.PackageManagerUtils;
 
 public class SetupWizardUtils {
 
