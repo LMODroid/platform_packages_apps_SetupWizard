@@ -9,6 +9,8 @@ adb shell pm enable com.libremobileos.setupwizard || true
 wait ${!}
 adb shell pm enable com.libremobileos.setupwizard/.SetupWizardActivity || true
 wait ${!}
+adb shell pm enable com.libremobileos.setupwizard/.DeviceSpecificActivity || true
+wait ${!}
 adb shell pm enable com.google.android.setupwizard || true
 wait ${!}
 if adb shell pm list packages | grep com.android.provision; then
