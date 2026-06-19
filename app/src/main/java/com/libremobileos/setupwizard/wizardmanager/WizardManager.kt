@@ -15,12 +15,12 @@ import android.util.Log
 import com.google.android.setupcompat.util.ResultCodes
 import com.google.android.setupcompat.util.WizardManagerHelper.ACTION_NEXT
 import java.util.HashMap
-import com.libremobileos.setupwizard.SetupWizardApp.ACTION_LOAD
-import com.libremobileos.setupwizard.SetupWizardApp.EXTRA_ACTION_ID
-import com.libremobileos.setupwizard.SetupWizardApp.EXTRA_RESULT_CODE
-import com.libremobileos.setupwizard.SetupWizardApp.EXTRA_SCRIPT_URI
-import com.libremobileos.setupwizard.SetupWizardApp.EXTRA_WIZARD_BUNDLE
-import com.libremobileos.setupwizard.SetupWizardApp.LOGV
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.ACTION_LOAD
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.EXTRA_ACTION_ID
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.EXTRA_RESULT_CODE
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.EXTRA_SCRIPT_URI
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.EXTRA_WIZARD_BUNDLE
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.LOGV
 import com.libremobileos.setupwizard.util.SetupWizardUtils
 
 class WizardManager : Activity() {

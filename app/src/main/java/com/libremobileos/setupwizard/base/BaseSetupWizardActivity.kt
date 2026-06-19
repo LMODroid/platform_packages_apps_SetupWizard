@@ -27,7 +27,7 @@ import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.transition.TransitionHelper
 import com.google.android.setupdesign.util.ThemeHelper
 import com.libremobileos.setupwizard.R
-import com.libremobileos.setupwizard.SetupWizardApp.LOGV
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.LOGV
 import com.libremobileos.setupwizard.util.SetupWizardUtils
 import com.libremobileos.setupwizard.widget.NavigationLayout
 import com.libremobileos.setupwizard.widget.NavigationLayout.NavigationBarListener
@@ -170,7 +170,6 @@ abstract class BaseSetupWizardActivity : AppCompatActivity(), NavigationBarListe
         super.finish()
     }
 
-    @JvmOverloads
     protected fun finishAction(resultCode: Int, data: Intent? = null) {
         if (resultCode != RESULT_CANCELED) {
             nextAction(resultCode, data)
@@ -182,7 +181,6 @@ abstract class BaseSetupWizardActivity : AppCompatActivity(), NavigationBarListe
         }
     }
 
-    @JvmOverloads
     fun nextAction(resultCode: Int, data: Intent? = null) {
         if (LOGV) {
             Log.v(TAG, "nextAction resultCode=$resultCode data=$data this=$this")

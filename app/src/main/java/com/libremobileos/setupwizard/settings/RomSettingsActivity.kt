@@ -21,8 +21,8 @@ import com.libremobileos.hardware.LineageHardwareManager
 import com.libremobileos.providers.LMOSettings
 import com.libremobileos.setupwizard.R
 import com.libremobileos.setupwizard.SetupWizardApp
-import com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS
-import com.libremobileos.setupwizard.SetupWizardApp.KEY_SEND_METRICS
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.DISABLE_NAV_KEYS
+import com.libremobileos.setupwizard.SetupWizardApp.Companion.KEY_SEND_METRICS
 import com.libremobileos.setupwizard.base.BaseSetupWizardActivity
 
 class RomSettingsActivity : BaseSetupWizardActivity() {
