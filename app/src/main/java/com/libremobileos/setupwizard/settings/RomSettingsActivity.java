@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.settings;
 
 import static com.libremobileos.setupwizard.SetupWizardApp.DISABLE_NAV_KEYS;
 import static com.libremobileos.setupwizard.SetupWizardApp.KEY_SEND_METRICS;
@@ -18,6 +18,10 @@ import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.libremobileos.setupwizard.R;
+import com.libremobileos.setupwizard.SetupWizardApp;
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
 
 import com.libremobileos.hardware.LineageHardwareManager;
 import com.libremobileos.providers.LMOSettings;

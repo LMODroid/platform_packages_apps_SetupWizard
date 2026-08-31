@@ -16,7 +16,7 @@ import android.os.Bundle;
 import androidx.activity.result.ActivityResult;
 
 import com.libremobileos.setupwizard.R;
-import com.libremobileos.setupwizard.SubBaseActivity;
+import com.libremobileos.setupwizard.base.SubBaseActivity;
 
 public class RestoreIntroActivity extends SubBaseActivity {
 

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.settings;
 
 import android.app.UiModeManager;
 import android.content.res.Configuration;
@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
+
+import com.libremobileos.setupwizard.R;
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
 
 public class ThemeSettingsActivity extends BaseSetupWizardActivity {
 

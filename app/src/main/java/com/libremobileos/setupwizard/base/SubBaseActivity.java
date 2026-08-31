@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.base;
 
 import static com.google.android.setupcompat.util.ResultCodes.RESULT_ACTIVITY_NOT_FOUND;
 
@@ -20,6 +20,8 @@ import android.util.Log;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
+
+import com.libremobileos.setupwizard.R;
 
 public abstract class SubBaseActivity extends BaseSetupWizardActivity {
 

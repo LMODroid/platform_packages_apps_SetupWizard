@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.network;
 
 import static com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP;
 
@@ -16,6 +16,7 @@ import static com.libremobileos.setupwizard.SetupWizardApp.EXTRA_PREFS_SHOW_SKIP
 
 import android.content.Intent;
 
+import com.libremobileos.setupwizard.base.SubBaseActivity;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public class NetworkSetupActivity extends SubBaseActivity {

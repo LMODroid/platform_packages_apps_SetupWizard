@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.time;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -31,6 +31,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.android.settingslib.datetime.ZoneGetter;
 
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
+import com.libremobileos.setupwizard.R;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 import java.util.Calendar;

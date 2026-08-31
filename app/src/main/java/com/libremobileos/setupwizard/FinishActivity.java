@@ -27,6 +27,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.setupcompat.util.SystemBarHelper;
 
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public class FinishActivity extends BaseSetupWizardActivity {

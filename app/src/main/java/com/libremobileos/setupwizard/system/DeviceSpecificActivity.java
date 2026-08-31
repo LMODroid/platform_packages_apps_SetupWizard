@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.system;
 
 import android.content.ComponentName;
 import android.content.Intent;
 
+import com.libremobileos.setupwizard.base.SubBaseActivity;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public class DeviceSpecificActivity extends SubBaseActivity {

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.base;
 
 import static android.view.View.INVISIBLE;
 
@@ -39,7 +39,9 @@ import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.transition.TransitionHelper;
 import com.google.android.setupdesign.util.ThemeHelper;
 
-import com.libremobileos.setupwizard.NavigationLayout.NavigationBarListener;
+import com.libremobileos.setupwizard.widget.NavigationLayout;
+import com.libremobileos.setupwizard.widget.NavigationLayout.NavigationBarListener;
+import com.libremobileos.setupwizard.R;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public abstract class BaseSetupWizardActivity extends AppCompatActivity implements

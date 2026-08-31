@@ -49,7 +49,7 @@ import android.util.Log;
 import com.libremobileos.hardware.LineageHardwareManager;
 import com.libremobileos.providers.LMOSettings;
 import com.libremobileos.util.PackageManagerUtils;
-import com.libremobileos.setupwizard.BaseSetupWizardActivity;
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
 import com.libremobileos.setupwizard.SetupWizardApp;
 
 import java.io.File;

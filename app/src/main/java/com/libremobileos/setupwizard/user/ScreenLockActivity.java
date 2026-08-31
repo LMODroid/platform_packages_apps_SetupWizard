@@ -4,9 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.user;
 
 import android.content.Intent;
+
+import com.libremobileos.setupwizard.base.SubBaseActivity;
 
 public class ScreenLockActivity extends SubBaseActivity {
 

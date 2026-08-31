@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.google.android.setupcompat.template.FooterButtonStyleUtils;
+
+import com.libremobileos.setupwizard.R;
 
 public class NavigationLayout extends RelativeLayout {
     /*

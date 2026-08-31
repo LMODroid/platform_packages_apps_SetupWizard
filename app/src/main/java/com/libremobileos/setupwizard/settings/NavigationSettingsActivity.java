@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.settings;
 
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
@@ -25,6 +25,10 @@ import android.widget.RadioGroup;
 import com.airbnb.lottie.LottieAnimationView;
 
 import com.libremobileos.providers.LMOSettings;
+
+import com.libremobileos.setupwizard.R;
+import com.libremobileos.setupwizard.SetupWizardApp;
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public class NavigationSettingsActivity extends BaseSetupWizardActivity {

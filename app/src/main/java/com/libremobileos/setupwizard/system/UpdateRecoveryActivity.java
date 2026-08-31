@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.system;
 
 import static com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP;
 
@@ -16,6 +16,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 
+import com.libremobileos.setupwizard.R;
+import com.libremobileos.setupwizard.SetupWizardApp;
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
 import com.libremobileos.setupwizard.util.SetupWizardUtils;
 
 public class UpdateRecoveryActivity extends BaseSetupWizardActivity {

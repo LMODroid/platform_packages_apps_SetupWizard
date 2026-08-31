@@ -9,7 +9,7 @@ adb shell pm enable com.libremobileos.setupwizard || true
 wait ${!}
 adb shell pm enable com.libremobileos.setupwizard/.SetupWizardActivity || true
 wait ${!}
-adb shell pm enable com.libremobileos.setupwizard/.DeviceSpecificActivity || true
+adb shell pm enable com.libremobileos.setupwizard/.system.DeviceSpecificActivity || true
 wait ${!}
 if adb shell pm list packages | grep com.google.android.setupwizard; then
   adb shell pm disable com.google.android.setupwizard || true

@@ -3,12 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.libremobileos.setupwizard;
+package com.libremobileos.setupwizard.settings;
 
 import android.os.Bundle;
 import android.widget.RadioGroup;
 import android.provider.Settings;
 import androidx.annotation.Nullable;
+
+import com.libremobileos.setupwizard.R;
+import com.libremobileos.setupwizard.base.BaseSetupWizardActivity;
 
 import com.libremobileos.providers.LMOSettings;
 

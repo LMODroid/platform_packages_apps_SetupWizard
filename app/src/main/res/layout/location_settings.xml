@@ -91,7 +91,7 @@
             </ScrollView>
         </FrameLayout>
 
-        <com.libremobileos.setupwizard.NavigationLayout
+        <com.libremobileos.setupwizard.widget.NavigationLayout
             android:id="@+id/navigation_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
