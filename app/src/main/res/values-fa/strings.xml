@@ -65,7 +65,6 @@
     <!-- LMODroid features page -->
     <string name="setup_services">ویژگی‌های LMODroid</string>
     <string name="services_pp_explanation">خدمات برای گسترش قابلیت‌های دستگاه شما</string>
-    <string name="services_find_privacy_policy">شما می‌توانید سیاست حفظ حریم خصوصی را بر روی دستگاه دیگری بازدید کنید به <xliff:g id="uri" example="https://libremobileos.com/legal">%1$s</xliff:g></string>
     <string name="services_help_improve_cm">کمک به بهبود <xliff:g id="name" example="LMODroid">%s</xliff:g></string>
     <string name="services_metrics_label"><xliff:g id="name" example="Help improve LMODroid">%1$s</xliff:g> با ارسال خودکار داده‌های تشخیصی و استفاده به <xliff:g id="name" example="LMODroid">%2$s</xliff:g>این اطلاعات قابل استفاده برای شناسایی شما نیست و به تیم‌هایی که در زمینه‌هایی مانند عمر باتری٬ بهبود عکلکرد و ویژگی‌های جدید در <xliff:g id="name" example="LMODroid">%3$s</xliff:g> کار می‌کنند کمک می‌کند</string>
     <string name="services_os_nav_keys_label"><b>استفاده از کلیدهای ناوبری صفحه نمایش</b> به جای کلیدهای سخت‌افزاری</string>

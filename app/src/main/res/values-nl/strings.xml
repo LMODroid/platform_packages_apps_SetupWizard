@@ -52,7 +52,6 @@
     <string name="accessibility_settings">Toegankelijkheidsinstellingen</string>
     <string name="setup_services">Functies van LMODroid</string>
     <string name="services_pp_explanation">Deze diensten worden gebruikt om de mogelijkheden van uw apparaat uit te breiden.</string>
-    <string name="services_find_privacy_policy">U kunt het privacybeleid op een ander apparaat lezen door <xliff:g id="uri" example="https://libremobileos.com/legal">%1$s</xliff:g> te bezoeken</string>
     <string name="services_help_improve_cm">Help mee met het verbeteren van <xliff:g id="name" example="LMODroid">%s</xliff:g></string>
     <string name="services_metrics_label"><xliff:g id="name" example="Help improve LMODroid">%1$s</xliff:g> door automatisch diagnose- en verbruiksgegevens te verzenden naar  <xliff:g id="name" example="LMODroid">%2$s</xliff:g>. Deze informatie kan niet gebruikt worden om u te identificeren en helpt de teams om te werken aan zaken zoals levensduur van de accu, app-prestaties en nieuwe <xliff:g id="name" example="LMODroid">%3$s</xliff:g> features.</string>
     <string name="services_os_nav_keys_label"><b>On-screen navigatieknoppen</b> gebruiken in plaats van de hardwareknoppen.</string>
