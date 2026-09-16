@@ -35,7 +35,6 @@ class RomSettingsActivity : BaseSetupWizardActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setNextText(R.string.next)
 
         val osName = getString(R.string.os_name)
         glifLayout.setDescriptionText(buildDescription(osName))
