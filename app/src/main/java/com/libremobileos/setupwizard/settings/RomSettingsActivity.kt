@@ -27,23 +27,23 @@ import com.libremobileos.setupwizard.base.BaseSetupWizardActivity
 
 class RomSettingsActivity : BaseSetupWizardActivity() {
 
-    private lateinit var mMetrics: CheckBox
-    private lateinit var mNavKeys: CheckBox
+    private lateinit var metrics: CheckBox
+    private lateinit var navKeys: CheckBox
 
-    private var mSupportsKeyDisabler = false
+    private var supportsKeyDisabler = false
 
-    private val mMetricsClickListener =
+    private val metricsClickListener =
         View.OnClickListener {
-            val checked = !mMetrics.isChecked
-            mMetrics.isChecked = checked
-            SetupWizardApp.getSettingsBundle().putBoolean(KEY_SEND_METRICS, checked)
+            val checked = !metrics.isChecked
+            metrics.isChecked = checked
+            SetupWizardApp.settingsBundle.putBoolean(KEY_SEND_METRICS, checked)
         }
 
-    private val mNavKeysClickListener =
+    private val navKeysClickListener =
         View.OnClickListener {
-            val checked = !mNavKeys.isChecked
-            mNavKeys.isChecked = checked
-            SetupWizardApp.getSettingsBundle().putBoolean(DISABLE_NAV_KEYS, checked)
+            val checked = !navKeys.isChecked
+            navKeys.isChecked = checked
+            SetupWizardApp.settingsBundle.putBoolean(DISABLE_NAV_KEYS, checked)
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,10 +56,10 @@ class RomSettingsActivity : BaseSetupWizardActivity() {
         val policySummary = getString(R.string.services_find_privacy_policy, privacyPolicyUri)
         val servicesFullDescription =
             getString(R.string.services_full_description, privacyPolicy, policySummary)
-        getGlifLayout().setDescriptionText(servicesFullDescription)
+        glifLayout.setDescriptionText(servicesFullDescription)
 
         val metricsRow = findViewById<View>(R.id.metrics)
-        metricsRow.setOnClickListener(mMetricsClickListener)
+        metricsRow.setOnClickListener(metricsClickListener)
         metricsRow.requestFocus()
         val metricsHelpImproveLMO = getString(R.string.services_help_improve_cm, osName)
         val metricsSummary =
@@ -72,14 +72,14 @@ class RomSettingsActivity : BaseSetupWizardActivity() {
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE,
         )
         findViewById<TextView>(R.id.enable_metrics_summary).text = metricsSpan
-        mMetrics = findViewById(R.id.enable_metrics_checkbox)
+        metrics = findViewById(R.id.enable_metrics_checkbox)
 
         val navKeysRow = findViewById<View>(R.id.nav_keys)
-        navKeysRow.setOnClickListener(mNavKeysClickListener)
-        mNavKeys = findViewById(R.id.nav_keys_checkbox)
-        mSupportsKeyDisabler = isKeyDisablerSupported(this)
-        if (mSupportsKeyDisabler) {
-            mNavKeys.isChecked =
+        navKeysRow.setOnClickListener(navKeysClickListener)
+        navKeys = findViewById(R.id.nav_keys_checkbox)
+        supportsKeyDisabler = isKeyDisablerSupported(this)
+        if (supportsKeyDisabler) {
+            navKeys.isChecked =
                 Settings.System.getIntForUser(
                     contentResolver,
                     LMOSettings.System.FORCE_SHOW_NAVBAR,
@@ -97,23 +97,23 @@ class RomSettingsActivity : BaseSetupWizardActivity() {
         updateMetricsOption()
     }
 
-    override fun getLayoutResId() = R.layout.setup_rom_settings
+    override val layoutResId = R.layout.setup_rom_settings
 
-    override fun getTitleResId() = R.string.setup_services
+    override val titleResId = R.string.setup_services
 
-    override fun getIconResId() = R.drawable.ic_features
+    override val iconResId = R.drawable.ic_features
 
     private fun updateMetricsOption() {
-        val myPageBundle = SetupWizardApp.getSettingsBundle()
+        val myPageBundle = SetupWizardApp.settingsBundle
         val metricsChecked =
             !myPageBundle.containsKey(KEY_SEND_METRICS) || myPageBundle.getBoolean(KEY_SEND_METRICS)
-        mMetrics.isChecked = metricsChecked
+        metrics.isChecked = metricsChecked
         myPageBundle.putBoolean(KEY_SEND_METRICS, metricsChecked)
     }
 
     private fun updateDisableNavkeysOption() {
-        if (mSupportsKeyDisabler) {
-            val myPageBundle = SetupWizardApp.getSettingsBundle()
+        if (supportsKeyDisabler) {
+            val myPageBundle = SetupWizardApp.settingsBundle
             val enabled =
                 Settings.System.getIntForUser(
                     contentResolver,
@@ -127,7 +127,7 @@ class RomSettingsActivity : BaseSetupWizardActivity() {
                 } else {
                     enabled
                 }
-            mNavKeys.isChecked = checked
+            navKeys.isChecked = checked
             myPageBundle.putBoolean(DISABLE_NAV_KEYS, checked)
         }
     }
