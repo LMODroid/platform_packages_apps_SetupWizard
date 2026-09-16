@@ -26,8 +26,8 @@ import com.google.android.setupcompat.util.WizardManagerHelper
 import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.transition.TransitionHelper
 import com.google.android.setupdesign.util.ThemeHelper
+import com.libremobileos.setupwizard.LOGV
 import com.libremobileos.setupwizard.R
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.LOGV
 import com.libremobileos.setupwizard.util.SetupWizardUtils
 import com.libremobileos.setupwizard.widget.NavigationLayout
 import com.libremobileos.setupwizard.widget.NavigationLayout.NavigationBarListener

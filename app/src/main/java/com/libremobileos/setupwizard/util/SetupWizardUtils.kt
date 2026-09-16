@@ -35,13 +35,13 @@ import com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP
 import java.io.File
 import com.libremobileos.hardware.LineageHardwareManager
 import com.libremobileos.providers.LMOSettings
+import com.libremobileos.setupwizard.DISABLE_NAV_KEYS
+import com.libremobileos.setupwizard.ENABLE_RECOVERY_UPDATE
+import com.libremobileos.setupwizard.KEY_SEND_METRICS
+import com.libremobileos.setupwizard.LOGV
+import com.libremobileos.setupwizard.NAVIGATION_OPTION_KEY
 import com.libremobileos.setupwizard.SetupWizardApp
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.DISABLE_NAV_KEYS
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.ENABLE_RECOVERY_UPDATE
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.KEY_SEND_METRICS
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.LOGV
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.NAVIGATION_OPTION_KEY
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.UPDATE_RECOVERY_PROP
+import com.libremobileos.setupwizard.UPDATE_RECOVERY_PROP
 import com.libremobileos.setupwizard.base.BaseSetupWizardActivity
 
 object SetupWizardUtils {

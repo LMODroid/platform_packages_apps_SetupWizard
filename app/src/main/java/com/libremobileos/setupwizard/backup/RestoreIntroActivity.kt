@@ -10,8 +10,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.result.ActivityResult
 import com.google.android.setupcompat.util.ResultCodes.RESULT_ACTIVITY_NOT_FOUND
+import com.libremobileos.setupwizard.ACTION_RESTORE_FROM_BACKUP
 import com.libremobileos.setupwizard.R
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.ACTION_RESTORE_FROM_BACKUP
 import com.libremobileos.setupwizard.base.SubBaseActivity
 
 class RestoreIntroActivity : SubBaseActivity() {

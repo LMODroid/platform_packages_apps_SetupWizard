@@ -20,7 +20,6 @@ import android.view.ViewGroup.MarginLayoutParams
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.setupcompat.util.SystemBarHelper
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.LOGV
 import com.libremobileos.setupwizard.base.BaseSetupWizardActivity
 import com.libremobileos.setupwizard.util.SetupWizardUtils
 

@@ -11,10 +11,6 @@ import android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.ACTION_LOAD
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.EXTRA_SCRIPT_URI
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.EXTRA_WIZARD_BUNDLE
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.LOGV
 import com.libremobileos.setupwizard.util.SetupWizardUtils
 import com.libremobileos.setupwizard.wizardmanager.WizardManager
 

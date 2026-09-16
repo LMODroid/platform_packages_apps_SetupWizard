@@ -11,7 +11,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
 import com.android.internal.util.XmlUtils
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.LOGV
+import com.libremobileos.setupwizard.LOGV
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 

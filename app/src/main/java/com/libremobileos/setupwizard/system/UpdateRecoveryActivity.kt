@@ -11,8 +11,10 @@ import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP
+import com.libremobileos.setupwizard.ENABLE_RECOVERY_UPDATE
 import com.libremobileos.setupwizard.R
 import com.libremobileos.setupwizard.SetupWizardApp
+import com.libremobileos.setupwizard.UPDATE_RECOVERY_PROP
 import com.libremobileos.setupwizard.base.BaseSetupWizardActivity
 import com.libremobileos.setupwizard.util.SetupWizardUtils
 
@@ -50,8 +52,8 @@ class UpdateRecoveryActivity : BaseSetupWizardActivity() {
         if (sFirstTime) {
             SetupWizardApp.getSettingsBundle()
                 .putBoolean(
-                    SetupWizardApp.ENABLE_RECOVERY_UPDATE,
-                    SystemProperties.getBoolean(SetupWizardApp.UPDATE_RECOVERY_PROP, true),
+                    ENABLE_RECOVERY_UPDATE,
+                    SystemProperties.getBoolean(UPDATE_RECOVERY_PROP, true),
                 )
         }
 
@@ -61,13 +63,13 @@ class UpdateRecoveryActivity : BaseSetupWizardActivity() {
     override fun onResume() {
         super.onResume()
         val myPageBundle = SetupWizardApp.getSettingsBundle()
-        val checked = myPageBundle.getBoolean(SetupWizardApp.ENABLE_RECOVERY_UPDATE, true)
+        val checked = myPageBundle.getBoolean(ENABLE_RECOVERY_UPDATE, true)
         mRecoveryUpdateCheckbox.isChecked = checked
     }
 
     override fun onNextPressed() {
         SetupWizardApp.getSettingsBundle()
-            .putBoolean(SetupWizardApp.ENABLE_RECOVERY_UPDATE, mRecoveryUpdateCheckbox.isChecked)
+            .putBoolean(ENABLE_RECOVERY_UPDATE, mRecoveryUpdateCheckbox.isChecked)
         super.onNextPressed()
     }
 

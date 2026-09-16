@@ -19,10 +19,10 @@ import android.provider.Settings
 import com.airbnb.lottie.LottieAnimationView
 import com.libremobileos.providers.LMOSettings
 import com.libremobileos.util.DeviceKeysConstants.KEY_MASK_APP_SWITCH
+import com.libremobileos.setupwizard.DISABLE_NAV_KEYS
+import com.libremobileos.setupwizard.NAVIGATION_OPTION_KEY
 import com.libremobileos.setupwizard.R
 import com.libremobileos.setupwizard.SetupWizardApp
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.DISABLE_NAV_KEYS
-import com.libremobileos.setupwizard.SetupWizardApp.Companion.NAVIGATION_OPTION_KEY
 import com.libremobileos.setupwizard.base.BaseSetupWizardActivity
 import com.libremobileos.setupwizard.util.SetupWizardUtils
 
