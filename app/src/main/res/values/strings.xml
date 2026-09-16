@@ -89,4 +89,6 @@
     <string name="right_hand">Right side</string>
     <string name="left_hand">Left side</string>
 
+    <!-- Finish Screen -->
+    <string name="swipe_up_to_go_home">Swipe up to go home</string>
 </resources>
