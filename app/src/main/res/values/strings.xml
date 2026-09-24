@@ -98,6 +98,7 @@
     <string name="dark">Dark</string>
     <string name="light">Light</string>
     <string name="pure_black_theme">Use pure black background</string>
+    <string name="theme_preview">Theme preview</string>
 
     <!-- Volume Panel -->
     <string name="setup_volume_panel">Volume Panel</string>
