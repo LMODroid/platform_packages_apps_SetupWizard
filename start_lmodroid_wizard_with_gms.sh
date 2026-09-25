@@ -11,6 +11,8 @@ adb shell pm enable com.libremobileos.setupwizard/.SetupWizardActivity || true
 wait ${!}
 adb shell pm enable com.libremobileos.setupwizard/.system.DeviceSpecificActivity || true
 wait ${!}
+adb shell pm enable com.libremobileos.setupwizard/.system.UpdateRecoveryActivity || true
+wait ${!}
 adb shell pm enable com.google.android.setupwizard || true
 wait ${!}
 if adb shell pm list packages | grep com.android.provision; then
