@@ -33,7 +33,7 @@ class SimMissingActivity : BaseSetupWizardActivity() {
             return
         }
 
-        glifLayout.setDescriptionText(getString(R.string.sim_missing_summary))
+        setDescriptionText(getString(R.string.sim_missing_summary))
         setNextAllowed(true)
         val simLogo = findViewById<ImageView>(R.id.sim_slot_image)
         simLogo.setImageResource(R.drawable.sim)
