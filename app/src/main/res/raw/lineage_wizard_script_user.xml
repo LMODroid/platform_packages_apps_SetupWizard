@@ -8,56 +8,58 @@
     wizard:firstAction="welcome">
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_WELCOME;end"
-        id="welcome">
-        <result wizard:name="skip" wizard:resultCode="1" />
+        id="welcome"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_WELCOME;end">
+        <result
+            wizard:name="skip"
+            wizard:resultCode="1" />
         <result wizard:action="restore" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_RESTORE_BACKUP;end"
-        id="restore">
+        id="restore"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_RESTORE_BACKUP;end">
         <result wizard:action="location_settings" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_LOCATION_SETTINGS;end"
-        id="location_settings">
+        id="location_settings"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_LOCATION_SETTINGS;end">
         <result wizard:action="biometric_settings" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_BIOMETRIC_SETTINGS;end"
-        id="biometric_settings">
+        id="biometric_settings"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_BIOMETRIC_SETTINGS;end">
         <result wizard:action="lockscreen_settings" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_LOCKSCREEN_SETTINGS;end"
-        id="lockscreen_settings">
+        id="lockscreen_settings"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_LOCKSCREEN_SETTINGS;end">
         <result wizard:action="theme_settings" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.THEME_SETTINGS;end"
-        id="theme_settings">
+        id="theme_settings"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.THEME_SETTINGS;end">
         <result wizard:action="navigation_settings" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.NAVIGATION_SETTINGS;end"
-        id="navigation_settings">
+        id="navigation_settings"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.NAVIGATION_SETTINGS;end">
         <result wizard:action="volume_panel" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.VOLUME_PANEL;end"
-        id="volume_panel">
+        id="volume_panel"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.VOLUME_PANEL;end">
         <result wizard:action="finish" />
     </WizardAction>
 
     <WizardAction
-        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_SETUP_COMPLETE;end"
-        id="finish" />
+        id="finish"
+        wizard:uri="intent:#Intent;action=com.libremobileos.setupwizard.LINEAGE_SETUP_COMPLETE;end" />
 
 </WizardScript>
