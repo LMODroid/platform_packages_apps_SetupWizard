@@ -3,8 +3,8 @@ SPDX-FileCopyrightText: The LineageOS Project
 SPDX-License-Identifier: Apache-2.0
 -->
 
-LineageOS SetupWizard
-=====================
+LMODroid SetupWizard
+====================
 
 Build with Android Studio
 -------------------------
@@ -23,7 +23,7 @@ needed classes. To do this:
    `system_libs/` with the jars Gradle expects:
    - `framework.jar`
    - `framework-location.jar`
-   - `org.lineageos.platform.internal.jar`
+   - `framework-lmodroid.static.jar`
    - `PartnerConfig.jar`, `PartnerConfig-kt.jar`
    - `SettingsLib.jar`
    - `setupcompat.jar`, `setupcompat-kt.jar`, `setupcompat-R.jar`
