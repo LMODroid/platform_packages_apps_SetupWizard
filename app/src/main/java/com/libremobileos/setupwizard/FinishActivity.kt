@@ -406,7 +406,7 @@ class FinishActivity : BaseSetupWizardActivity() {
         private const val TAG = "FinishActivity"
 
         private const val MARK_CENTER_X = 256f / 512f
-        private const val MARK_CENTER_Y = 128f / 260f
+        private const val MARK_CENTER_Y = 256f / 512f
 
         private const val ENTRANCE_HINT_DELAY_MS = 150L
         private const val ENTRANCE_STAGGER_MS = 80L
