@@ -17,7 +17,7 @@ class VolumePanelActivity : BaseSetupWizardActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        glifLayout.setDescriptionText(getString(R.string.volume_panel_summary))
+        setDescriptionText(getString(R.string.volume_panel_summary))
 
         val radioGroup: RadioGroup = findViewById(R.id.volume_panel_radio_group)
         val onLeft =
