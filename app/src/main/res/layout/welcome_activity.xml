@@ -20,13 +20,15 @@
             android:layout_height="0dp"
             android:layout_weight="2" />
 
-        <ImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/brand_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/logo" />
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/welcome_logo" />
 
         <Space
             android:layout_width="match_parent"
