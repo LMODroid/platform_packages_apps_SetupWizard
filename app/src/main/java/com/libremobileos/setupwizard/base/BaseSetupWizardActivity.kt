@@ -30,6 +30,7 @@ import com.google.android.setupdesign.transition.TransitionHelper
 import com.google.android.setupdesign.util.ThemeHelper
 import com.libremobileos.setupwizard.EXTRA_ACTION_ID
 import com.libremobileos.setupwizard.EXTRA_SCRIPT_URI
+import com.libremobileos.setupwizard.EXTRA_USE_EXPRESSIVE_STYLE
 import com.libremobileos.setupwizard.EXTRA_WIZARD_BUNDLE
 import com.libremobileos.setupwizard.LOGV
 import com.libremobileos.setupwizard.R
@@ -219,6 +220,7 @@ abstract class BaseSetupWizardActivity : AppCompatActivity() {
             .putExtra(WizardManagerHelper.EXTRA_IS_FIRST_RUN, isFirstRun())
             .putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true)
             .putExtra(WizardManagerHelper.EXTRA_THEME, ThemeHelper.THEME_GLIF_EXPRESSIVE)
+            .putExtra(EXTRA_USE_EXPRESSIVE_STYLE, true)
 
     override fun startActivity(intent: Intent) {
         super.startActivity(decorateIntent(intent))
