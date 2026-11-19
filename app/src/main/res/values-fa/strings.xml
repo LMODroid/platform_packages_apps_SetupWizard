@@ -68,7 +68,6 @@
     <string name="services_help_improve_cm">کمک به بهبود <xliff:g id="name" example="LMODroid">%s</xliff:g></string>
     <string name="services_metrics_label"><xliff:g id="name" example="Help improve LMODroid">%1$s</xliff:g> با ارسال خودکار داده‌های تشخیصی و استفاده به <xliff:g id="name" example="LMODroid">%2$s</xliff:g>این اطلاعات قابل استفاده برای شناسایی شما نیست و به تیم‌هایی که در زمینه‌هایی مانند عمر باتری٬ بهبود عکلکرد و ویژگی‌های جدید در <xliff:g id="name" example="LMODroid">%3$s</xliff:g> کار می‌کنند کمک می‌کند</string>
     <string name="services_os_nav_keys_label"><b>استفاده از کلیدهای ناوبری صفحه نمایش</b> به جای کلیدهای سخت‌افزاری</string>
-    <string name="lmo_motto_message">از طعم آزادی لذت ببرید</string>
 
     <!-- Navigation page -->
     <string name="setup_navigation">ناوبری</string>

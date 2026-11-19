@@ -34,15 +34,6 @@
             android:scaleType="fitCenter"
             android:src="@drawable/logo" />
 
-        <TextView
-            style="@style/WelcomeTitle"
-            android:id="@+id/lmo_motto"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="@string/lmo_motto_message"
-            android:hyphenationFrequency="none"/>
-
         <LinearLayout
             android:id="@+id/swipe_hint"
             android:layout_width="match_parent"

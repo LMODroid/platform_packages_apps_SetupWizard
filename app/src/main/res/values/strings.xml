@@ -93,7 +93,6 @@
     <string name="services_metrics_title">Contribute diagnostic data</string>
     <string name="services_os_nav_keys_label"><b>Use on screen navigation keys</b> instead of hardware keys.</string>
     <string name="services_full_description"><xliff:g id="pp_explanation">%1$s</xliff:g>\n<xliff:g id="pp_find">%2$s</xliff:g></string>
-    <string name="lmo_motto_message">Enjoy the taste of liberty</string>
 
     <!-- Navigation page -->
     <string name="setup_navigation">Navigation</string>
