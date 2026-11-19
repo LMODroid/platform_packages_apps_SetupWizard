@@ -94,6 +94,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.dynamicanimation)
     implementation(libs.androidx.leanback)
     implementation(libs.lottie)
     implementation(libs.material)

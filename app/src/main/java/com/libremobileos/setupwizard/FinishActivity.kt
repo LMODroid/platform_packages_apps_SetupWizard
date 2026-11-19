@@ -6,13 +6,8 @@
 
 package com.libremobileos.setupwizard
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ValueAnimator
 import android.content.pm.ActivityInfo
 import android.content.res.Resources
-import android.graphics.BlendMode
-import android.graphics.Paint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -24,13 +19,15 @@ import android.view.VelocityTracker
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.dynamicanimation.animation.FloatValueHolder
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce
 import com.google.android.setupcompat.util.SystemBarHelper
 import kotlin.math.min
 import com.libremobileos.setupwizard.base.BaseSetupWizardActivity
@@ -51,8 +48,17 @@ class FinishActivity : BaseSetupWizardActivity() {
     private var velocityTracker: VelocityTracker? = null
     private var dragStartY = 0f
     private var dragging = false
+
+    // The closing animation runs on two Material 3 Expressive springs: a spatial one for how far
+    // the wallpaper is revealed (hole size, logo scale, hint lift) and an effects one for the
+    // content's opacity. While a finger drags, both follow it; on release they take over from
+    // where it left them, the reveal with the finger's velocity. The logo leads: it zooms towards
+    // the user as the wallpaper opens from its centre, while the hint is already fading out.
     private var revealProgress = 0f
-    private var logoPunched = false
+    private var contentAlpha = 1f
+    private var screenRevealed = false
+    private val revealSpring = progressSpring { applyRevealProgress(it) }
+    private val fadeSpring = progressSpring { applyContentAlpha(it) }
 
     private var edgeToEdgeWallpaperBackgroundTheme: Resources.Theme? = null
     private val revealWallpaper by lazy { !SetupWizardUtils.hasLeanback(this) }
@@ -93,8 +99,6 @@ class FinishActivity : BaseSetupWizardActivity() {
         swipeHintText = findViewById(R.id.swipe_hint_text)
         background = findViewById(R.id.background)
         brandLogo = findViewById(R.id.brand_logo)
-
-        rootView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
 
         brandLogo.scaleX = logoStartScale
         brandLogo.scaleY = logoStartScale
@@ -143,7 +147,6 @@ class FinishActivity : BaseSetupWizardActivity() {
             if (finishState != FinishState.NONE) {
                 return@setOnClickListener
             }
-            punchLogoOutOfBackground()
             commitReveal()
         }
     }
@@ -198,17 +201,6 @@ class FinishActivity : BaseSetupWizardActivity() {
         }
     }
 
-    private fun punchLogoOutOfBackground() {
-        if (logoPunched || !revealWallpaper) {
-            return
-        }
-        brandLogo.setLayerType(
-            View.LAYER_TYPE_HARDWARE,
-            Paint().apply { blendMode = BlendMode.DST_OUT },
-        )
-        logoPunched = true
-    }
-
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         if (finishState != FinishState.NONE || event.repeatCount != 0) {
             return super.onKeyDown(keyCode, event)
@@ -216,7 +208,6 @@ class FinishActivity : BaseSetupWizardActivity() {
         if (keyCode !in COMMIT_KEY_CODES) {
             return super.onKeyDown(keyCode, event)
         }
-        punchLogoOutOfBackground()
         commitReveal()
         return true
     }
@@ -228,8 +219,10 @@ class FinishActivity : BaseSetupWizardActivity() {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 endEntranceAnimation()
-                punchLogoOutOfBackground()
-                dragStartY = event.y
+                // Catch the screen where it is if it is still springing back.
+                revealSpring.cancel()
+                fadeSpring.cancel()
+                dragStartY = event.y + revealProgress * swipeDistance()
                 dragging = true
                 velocityTracker = VelocityTracker.obtain()
                 velocityTracker?.addMovement(event)
@@ -239,7 +232,9 @@ class FinishActivity : BaseSetupWizardActivity() {
                 if (!dragging) return super.onTouchEvent(event)
                 velocityTracker?.addMovement(event)
                 val dragged = (dragStartY - event.y).coerceAtLeast(0f)
-                applyRevealProgress((dragged / swipeDistance()).coerceIn(0f, 1f))
+                val progress = (dragged / swipeDistance()).coerceIn(0f, 1f)
+                applyRevealProgress(progress)
+                applyContentAlpha(1f - (progress / DRAG_FADE_FRACTION).coerceAtMost(1f))
                 return true
             }
             MotionEvent.ACTION_UP,
@@ -249,13 +244,14 @@ class FinishActivity : BaseSetupWizardActivity() {
                 val tracker = velocityTracker
                 tracker?.addMovement(event)
                 tracker?.computeCurrentVelocity(1000)
-                val flungUp = -(tracker?.yVelocity ?: 0f) > SWIPE_MIN_VELOCITY
+                val upVelocity = -(tracker?.yVelocity ?: 0f)
                 tracker?.recycle()
                 velocityTracker = null
-                if (revealProgress >= COMMIT_FRACTION || flungUp) {
-                    commitReveal()
+                val progressVelocity = upVelocity / swipeDistance()
+                if (revealProgress >= COMMIT_FRACTION || upVelocity > SWIPE_MIN_VELOCITY) {
+                    commitReveal(progressVelocity.coerceAtLeast(0f))
                 } else {
-                    springBack()
+                    springBack(progressVelocity)
                 }
                 return true
             }
@@ -301,28 +297,63 @@ class FinishActivity : BaseSetupWizardActivity() {
             background.holeCenterY =
                 parentLocation[1] - backgroundLocation[1] + brandLogo.top + brandLogo.pivotY
         }
-        background.holeRadius = background.fullRadius * REVEAL_OVERSHOOT * progress
+        // The spring may overshoot either way: the hole never goes below nothing, while the
+        // logo and text follow the overshoot and settle with it.
+        background.holeRadius = background.fullRadius * REVEAL_REACH * progress.coerceAtLeast(0f)
         brandLogo.apply {
-            val scale = logoStartScale + (LOGO_END_SCALE - logoStartScale) * progress
+            val scale = logoStartScale * (1f + LOGO_GROWTH * progress)
             scaleX = scale
             scaleY = scale
         }
-        val fade = 1f - progress
         swipeHintIcon.translationY = -rise(R.dimen.swipe_hint_icon_rise) * progress
-        swipeHintIcon.alpha = fade
         swipeHintText.translationY = -rise(R.dimen.swipe_hint_text_rise) * progress
-        swipeHintText.alpha = fade
+        maybeFinishReveal()
+    }
+
+    private fun applyContentAlpha(alpha: Float) {
+        contentAlpha = alpha
+        val clamped = alpha.coerceIn(0f, 1f)
+        brandLogo.alpha = clamped
+        val hintAlpha = ((clamped - HINT_GONE_ALPHA) / (1f - HINT_GONE_ALPHA)).coerceIn(0f, 1f)
+        swipeHintIcon.alpha = hintAlpha
+        swipeHintText.alpha = hintAlpha
+        maybeFinishReveal()
     }
 
     private fun rise(@DimenRes dimen: Int) = resources.getDimensionPixelSize(dimen).toFloat()
 
-    private fun springBack() {
-        ValueAnimator.ofFloat(revealProgress, 0f).apply {
-            duration = SPRING_BACK_DURATION_MS
-            interpolator = AccelerateDecelerateInterpolator()
-            addUpdateListener { applyRevealProgress(it.animatedValue as Float) }
-            start()
+    private fun progressSpring(onUpdate: (Float) -> Unit) =
+        SpringAnimation(FloatValueHolder()).apply {
+            setMinimumVisibleChange(SpringAnimation.MIN_VISIBLE_CHANGE_SCALE)
+            spring = SpringForce()
+            addUpdateListener { _, value, _ -> onUpdate(value) }
         }
+
+    private fun SpringAnimation.animate(
+        from: Float,
+        to: Float,
+        stiffness: Float,
+        dampingRatio: Float,
+        velocity: Float = 0f,
+    ) {
+        cancel()
+        spring.finalPosition = to
+        spring.stiffness = stiffness
+        spring.dampingRatio = dampingRatio
+        setStartValue(from)
+        setStartVelocity(velocity)
+        start()
+    }
+
+    private fun springBack(velocity: Float) {
+        revealSpring.animate(
+            revealProgress,
+            0f,
+            SPATIAL_DEFAULT_STIFFNESS,
+            SPATIAL_DEFAULT_DAMPING,
+            velocity,
+        )
+        fadeSpring.animate(contentAlpha, 1f, EFFECTS_DEFAULT_STIFFNESS, EFFECTS_DAMPING)
     }
 
     private fun disableNavigation() {
@@ -356,7 +387,7 @@ class FinishActivity : BaseSetupWizardActivity() {
         }
     }
 
-    private fun commitReveal() {
+    private fun commitReveal(velocity: Float = 0f) {
         endEntranceAnimation()
         finishState = FinishState.ANIMATING
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED)
@@ -365,24 +396,46 @@ class FinishActivity : BaseSetupWizardActivity() {
             fadeOutAndFinish()
             return
         }
-        ValueAnimator.ofFloat(revealProgress, 1f).apply {
-            duration = (ANIM_DURATION_MS * (1f - revealProgress)).toLong().coerceAtLeast(200L)
-            interpolator = AccelerateDecelerateInterpolator()
-            addUpdateListener { applyRevealProgress(it.animatedValue as Float) }
-            addListener(
-                object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        rootView.visibility = View.INVISIBLE
-                        handler.post {
-                            if (LOGV) {
-                                Log.v(TAG, "Animation ended")
-                            }
-                            finishAfterAnimation()
-                        }
-                    }
-                }
-            )
-            start()
+        // A full-screen change: the slow spatial spring, carrying on at the finger's speed. The
+        // content fades on the default effects spring, gone before the hole has passed it.
+        revealSpring.animate(
+            revealProgress,
+            1f,
+            SPATIAL_SLOW_STIFFNESS,
+            SPATIAL_SLOW_DAMPING,
+            velocity,
+        )
+        fadeSpring.animate(contentAlpha, 0f, EFFECTS_DEFAULT_STIFFNESS, EFFECTS_DAMPING)
+        revealSpring.addEndListener { _, _, _, _ -> maybeFinishReveal(springsEnded = true) }
+        fadeSpring.addEndListener { _, _, _, _ -> maybeFinishReveal(springsEnded = true) }
+    }
+
+    /**
+     * Ends the reveal once the hole covers the screen and the content is gone, without waiting for
+     * the spring's overshoot to settle: nothing on screen changes after that point.
+     */
+    private fun maybeFinishReveal(springsEnded: Boolean = false) {
+        if (finishState != FinishState.ANIMATING || rootView.visibility != View.VISIBLE) {
+            return
+        }
+        // Remembered: the overshoot brings the hole back a little after it first fills the screen.
+        if (revealProgress * REVEAL_REACH >= 1f) {
+            screenRevealed = true
+        }
+        val done = screenRevealed && contentAlpha <= CONTENT_GONE_ALPHA
+        val settled = springsEnded && !revealSpring.isRunning && !fadeSpring.isRunning
+        if (!done && !settled) {
+            return
+        }
+        // Hidden first: cancelling the springs calls back into here.
+        rootView.visibility = View.INVISIBLE
+        revealSpring.cancel()
+        fadeSpring.cancel()
+        handler.post {
+            if (LOGV) {
+                Log.v(TAG, "Animation ended")
+            }
+            finishAfterAnimation()
         }
     }
 
@@ -417,8 +470,23 @@ class FinishActivity : BaseSetupWizardActivity() {
         private const val COMMIT_FRACTION = 0.4f
         private const val SWIPE_MIN_VELOCITY = 600f
 
-        private const val ANIM_DURATION_MS = 900L
-        private const val SPRING_BACK_DURATION_MS = 200L
+        // How far into the swipe the logo has faded away; the hint is gone at HINT_GONE_ALPHA.
+        private const val DRAG_FADE_FRACTION = 0.5f
+        private const val HINT_GONE_ALPHA = 0.5f
+        private const val CONTENT_GONE_ALPHA = 0.01f
+
+        // Material 3 Expressive motion scheme springs (ExpressiveMotionTokens).
+        private const val SPATIAL_DEFAULT_STIFFNESS = 380f
+        private const val SPATIAL_DEFAULT_DAMPING = 0.8f
+        private const val SPATIAL_SLOW_STIFFNESS = 200f
+        private const val SPATIAL_SLOW_DAMPING = 0.8f
+        private const val EFFECTS_DEFAULT_STIFFNESS = 1600f
+        private const val EFFECTS_DAMPING = 1f
+
+        // The hole aims past the farthest corner so it covers the screen while still moving,
+        // instead of creeping into the corners as the spring settles.
+        private const val REVEAL_REACH = 1.35f
+
         private const val FADE_OUT_DURATION_MS = 400L
 
         private val COMMIT_KEY_CODES =
@@ -429,9 +497,9 @@ class FinishActivity : BaseSetupWizardActivity() {
                 KeyEvent.KEYCODE_BUTTON_A,
             )
 
-        private const val REVEAL_OVERSHOOT = 1.35f
-
-        private const val LOGO_END_SCALE = 18f
+        // The logo grows by this much of its size per swipe distance: +50 % by the time it has
+        // faded out.
+        private const val LOGO_GROWTH = 1f
 
         // Static so a relaunch after the wizard has finished is recognised and dropped rather
         // than replaying the reveal; @Volatile because it is written from animation callbacks.
