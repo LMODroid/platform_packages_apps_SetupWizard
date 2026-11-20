@@ -6,6 +6,7 @@
 
 package com.libremobileos.setupwizard
 
+import android.animation.ValueAnimator
 import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.os.Bundle
@@ -25,6 +26,7 @@ import androidx.annotation.DimenRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.FloatValueHolder
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
@@ -39,7 +41,6 @@ class FinishActivity : BaseSetupWizardActivity() {
     private val handler = Handler(Looper.getMainLooper())
 
     private lateinit var rootView: View
-    private lateinit var swipeHint: View
     private lateinit var swipeHintIcon: ImageView
     private lateinit var swipeHintText: TextView
     private lateinit var background: RevealHoleView
@@ -59,6 +60,35 @@ class FinishActivity : BaseSetupWizardActivity() {
     private var screenRevealed = false
     private val revealSpring = progressSpring { applyRevealProgress(it) }
     private val fadeSpring = progressSpring { applyContentAlpha(it) }
+
+    // Every few seconds the swipe hint lifts and settles back on the default spatial spring, to
+    // show which way to swipe. Only with gesture navigation: the 3-button hint is a Home button.
+    private var hintLiftOffset = 0f
+    private var hintLifting = false
+    private val hintLiftHeight by lazy { rise(R.dimen.swipe_hint_lift) }
+    private val hintLift =
+        SpringAnimation(FloatValueHolder()).apply {
+            setMinimumVisibleChange(DynamicAnimation.MIN_VISIBLE_CHANGE_PIXELS)
+            spring =
+                SpringForce(0f)
+                    .setStiffness(SPATIAL_DEFAULT_STIFFNESS)
+                    .setDampingRatio(SPATIAL_DEFAULT_DAMPING)
+            addUpdateListener { _, value, _ ->
+                hintLiftOffset = value
+                if (hintLifting && value <= -hintLiftHeight * HINT_LIFT_TURN) {
+                    hintLifting = false
+                    animateToFinalPosition(0f)
+                }
+                applyHintTranslation()
+            }
+        }
+    private val hintLiftRunnable =
+        object : Runnable {
+            override fun run() {
+                liftHint()
+                handler.postDelayed(this, HINT_LIFT_INTERVAL_MS)
+            }
+        }
 
     private var edgeToEdgeWallpaperBackgroundTheme: Resources.Theme? = null
     private val revealWallpaper by lazy { !SetupWizardUtils.hasLeanback(this) }
@@ -94,7 +124,6 @@ class FinishActivity : BaseSetupWizardActivity() {
         window.isStatusBarContrastEnforced = false
 
         rootView = findViewById(R.id.root)
-        swipeHint = findViewById(R.id.swipe_hint)
         swipeHintIcon = findViewById(R.id.swipe_hint_icon)
         swipeHintText = findViewById(R.id.swipe_hint_text)
         background = findViewById(R.id.background)
@@ -166,8 +195,54 @@ class FinishActivity : BaseSetupWizardActivity() {
         return selected == NAV_BAR_MODE_GESTURAL_OVERLAY
     }
 
+    override fun onResume() {
+        super.onResume()
+        scheduleHintLifts(HINT_LIFT_FIRST_DELAY_MS)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopHintLifts()
+    }
+
+    private fun scheduleHintLifts(delay: Long) {
+        handler.removeCallbacks(hintLiftRunnable)
+        if (
+            finishState != FinishState.NONE ||
+                !usesGestureNavigation() ||
+                !ValueAnimator.areAnimatorsEnabled()
+        ) {
+            return
+        }
+        handler.postDelayed(hintLiftRunnable, delay)
+    }
+
+    private fun liftHint() {
+        if (finishState != FinishState.NONE || dragging) {
+            return
+        }
+        hintLifting = true
+        hintLift.animateToFinalPosition(-hintLiftHeight)
+    }
+
+    /** Stops lifting the hint; a lift under way settles back instead of jumping. */
+    private fun stopHintLifts() {
+        handler.removeCallbacks(hintLiftRunnable)
+        hintLifting = false
+        if (hintLift.isRunning) {
+            hintLift.animateToFinalPosition(0f)
+        }
+    }
+
+    private fun applyHintTranslation() {
+        swipeHintIcon.translationY =
+            -rise(R.dimen.swipe_hint_icon_rise) * revealProgress + hintLiftOffset
+    }
+
     override fun onDestroy() {
         super.onDestroy()
+        handler.removeCallbacks(hintLiftRunnable)
+        hintLift.cancel()
         velocityTracker?.recycle()
         velocityTracker = null
     }
@@ -219,6 +294,7 @@ class FinishActivity : BaseSetupWizardActivity() {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 endEntranceAnimation()
+                stopHintLifts()
                 // Catch the screen where it is if it is still springing back.
                 revealSpring.cancel()
                 fadeSpring.cancel()
@@ -305,7 +381,7 @@ class FinishActivity : BaseSetupWizardActivity() {
             scaleX = scale
             scaleY = scale
         }
-        swipeHintIcon.translationY = -rise(R.dimen.swipe_hint_icon_rise) * progress
+        applyHintTranslation()
         swipeHintText.translationY = -rise(R.dimen.swipe_hint_text_rise) * progress
         maybeFinishReveal()
     }
@@ -354,10 +430,12 @@ class FinishActivity : BaseSetupWizardActivity() {
             velocity,
         )
         fadeSpring.animate(contentAlpha, 1f, EFFECTS_DEFAULT_STIFFNESS, EFFECTS_DAMPING)
+        scheduleHintLifts(HINT_LIFT_INTERVAL_MS)
     }
 
     private fun disableNavigation() {
-        swipeHint.visibility = View.INVISIBLE
+        // The hint fades out with the logo; its Home button ignores taps from here on.
+        stopHintLifts()
         SystemBarHelper.setBackButtonVisible(window, false)
     }
 
@@ -469,6 +547,11 @@ class FinishActivity : BaseSetupWizardActivity() {
 
         private const val COMMIT_FRACTION = 0.4f
         private const val SWIPE_MIN_VELOCITY = 600f
+
+        private const val HINT_LIFT_FIRST_DELAY_MS = 2500L
+        private const val HINT_LIFT_INTERVAL_MS = 3500L
+        // How far up the lift goes before the spring turns back to rest.
+        private const val HINT_LIFT_TURN = 0.9f
 
         // How far into the swipe the logo has faded away; the hint is gone at HINT_GONE_ALPHA.
         private const val DRAG_FADE_FRACTION = 0.5f
